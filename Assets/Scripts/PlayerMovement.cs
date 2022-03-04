@@ -18,11 +18,7 @@ public class PlayerMovement : MonoBehaviour
         coll = GetComponent<Collider>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Vector3 vec = new Vector3(1, 0, 0);
 
     void FixedUpdate()
     {
@@ -31,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(moveForce);
             SoundHandler.StartWalk();
+            if (rb.velocity.sqrMagnitude > 0.001) {
+                transform.forward = rb.velocity;
+            }
         }
         else
         {

@@ -14,12 +14,6 @@ public class CamController : MonoBehaviour
 
     private void Awake() => self = this;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         if (!target) return;
