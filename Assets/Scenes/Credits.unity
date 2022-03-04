@@ -805,6 +805,8 @@ GameObject:
   - component: {fileID: 685915352}
   - component: {fileID: 685915354}
   - component: {fileID: 685915353}
+  - component: {fileID: 685915356}
+  - component: {fileID: 685915355}
   m_Layer: 5
   m_Name: Back_Btn
   m_TagString: Untagged
@@ -869,6 +871,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685915351}
   m_CullTransparentMesh: 1
+--- !u!114 &685915355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685915351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e62dc0a092590408c1c48207dc13c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &685915356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685915351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 685915355}
+          m_TargetAssemblyTypeName: credit_scene_back_btn, Assembly-CSharp
+          m_MethodName: credits_btn_pressed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
