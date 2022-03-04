@@ -22,6 +22,11 @@ public class KeyHandler : MonoBehaviour
         return dir;
     }
 
+    public static bool ReadMaggotSwitch()
+    {
+        return Input.GetKeyDown(KeyCode.Space);
+    }
+
     public static Vector2 ReadJumpInput()
     {
         if (!enableMovement) return Vector3.zero;

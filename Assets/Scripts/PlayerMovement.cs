@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public static PlayerMovement self;
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Collider coll;
 
@@ -13,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        self = this;
         rb = GetComponent<Rigidbody>();
         coll = GetComponent<Collider>();
     }
