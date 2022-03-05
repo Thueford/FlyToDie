@@ -5,9 +5,15 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public CapsuleCollider triggerCollider;
+
     private Collider playerCollider;
     private bool moving = false;
     private Vector3 playerPos;
+
+    private float pov;
+    public float pov_width = 1f;
+    public float pov_length = 1f;
+    public bool enablePov = true;
 
     private void Awake()
     {
@@ -18,7 +24,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pov = transform.rotation.y;
     }
 
     // Update is called once per frame
@@ -36,7 +42,8 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+
+
     }
 
     private void OnTriggerEnter(Collider player)
@@ -50,5 +57,10 @@ public class EnemyController : MonoBehaviour
     {
         //Debug.Log("Player left");
         moving = false;
+    }
+
+    public Vector3 getPov()
+    {
+        return transform.rotation.eulerAngles;
     }
 }
