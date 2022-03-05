@@ -31,7 +31,7 @@ public class KillController : MonoBehaviour
     {
         Debug.Log("DIE MTFK DIEEE!!");
         GameObject dead = Instantiate(DeadPrefab, transform.position, transform.rotation);
-        dead.GetComponent<Rigidbody>().AddForce(150 * Vector3.up);
+        dead.GetComponent<Rigidbody>().AddForce(200 * Vector3.up);
         dead.GetComponent<Rigidbody>().rotation = Random.rotation;
         StartCoroutine(Respawn());
     }
@@ -46,5 +46,14 @@ public class KillController : MonoBehaviour
         transform.position = respawnPos;
         transform.GetChild(0).gameObject.SetActive(true);
         KeyHandler.enableMovement = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("KillLevel"))
+        {
+            Debug.Log("Drowned");
+            Die();
+        }
     }
 }
