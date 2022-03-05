@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         ObstacleController o = other.GetComponent<ObstacleController>();
-        if (o == dragged) Drop();
+        if (dragged && o.gameObject == dragged.gameObject) Drop();
         if (o) below.Remove(o);
     }
 }
