@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class GameController : MonoBehaviour
     public PlayerMovement[] players;
 
     public static GameController self;
+    public LevelController curLvl;
 
     private void Awake()
     {
@@ -23,6 +25,11 @@ public class GameController : MonoBehaviour
     {
         if (KeyHandler.ReadMaggotSwitch())
             TogglePlayerType();
+    }
+
+    internal void SetLevel(LevelController level)
+    {
+        curLvl = level;
     }
 
     public void TogglePlayerType()

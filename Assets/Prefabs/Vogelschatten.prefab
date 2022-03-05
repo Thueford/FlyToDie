@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 567546126931473482}
   - component: {fileID: 567546126931473525}
   - component: {fileID: 567546126931473524}
+  - component: {fileID: 2929090827570322580}
   m_Layer: 8
   m_Name: Vogelschatten
   m_TagString: BigBadBird
@@ -95,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 27.392776, y: 22.21676, z: 26.746946}
-  m_Center: {x: 0.29023743, y: -1.2955818, z: 1.7214165}
+  m_Size: {x: 4.948204, y: 16.100756, z: 25.62438}
+  m_Center: {x: 0.22528458, y: 0.8133135, z: 2.2826996}
 --- !u!114 &567546126931473524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,3 +114,16 @@ MonoBehaviour:
   - {x: 100, y: -10, z: 100}
   speed: 1
   sees_you: 0
+--- !u!65 &2929090827570322580
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567546126931473527}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 27.32967, y: 11.207217, z: 26.881897}
+  m_Center: {x: 0.42613792, y: 2.4141283, z: 2.6335268}

@@ -81,6 +81,8 @@ MonoBehaviour:
   coll: {fileID: 0}
   moveMult: 60
   maxHSpeed: 5
+  visible: 1
+  birdie_sees_you: 0
   vec: {x: 1, y: 0, z: 0}
   ang: 0
 --- !u!114 &8173833990966481230
@@ -98,7 +100,9 @@ MonoBehaviour:
   below: []
   rb: {fileID: 0}
   dragged: {fileID: 0}
-  visible: 0
+  DeadPrefab: {fileID: 2941462236079272147, guid: f1b3ce5063c095f49bde40a07188564d, type: 3}
+  ExplosionPrefab: {fileID: 6219464887462307076, guid: a37a6ca473276d24ea5769c532975de6, type: 3}
+  flyType: 0
 --- !u!114 &8763395455542908436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ca98d5a21f595b2408270eaae37fb728, type: 3}
       propertyPath: m_Name
-      value: final-fly
+      value: Fly
       objectReference: {fileID: 0}
     - target: {fileID: 2410448201129605536, guid: ca98d5a21f595b2408270eaae37fb728, type: 3}
       propertyPath: m_Materials.Array.data[0]

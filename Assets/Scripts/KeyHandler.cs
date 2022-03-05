@@ -23,15 +23,9 @@ public class KeyHandler : MonoBehaviour
         return dir;
     }
 
-    internal static bool ReadDragInput()
-    {
-        return Input.GetKeyDown(KeyCode.E);
-    }
-
-    public static bool ReadMaggotSwitch()
-    {
-        return Input.GetKeyDown(KeyCode.Space);
-    }
+    internal static bool ReadKillInput() { return Input.GetKeyDown(KeyCode.K); }
+    internal static bool ReadDragInput() { return Input.GetKeyDown(KeyCode.E); }
+    public static bool ReadMaggotSwitch() { return Input.GetKeyDown(KeyCode.Space); }
 
     public static Vector2 ReadJumpInput()
     {
@@ -41,18 +35,7 @@ public class KeyHandler : MonoBehaviour
         return dir;
     }
 
-    public static Vector2 ReadMousePos()
-    {
-        return Input.mousePosition;
-    }
-
-    public static bool ReadRespawnButtonDown()
-    {
-        return Input.GetKey(KeyCode.R);
-    }
-
-    public static bool ReadSelectMenu()
-    {
-        return Input.GetKeyDown(KeyCode.M);
-    }
+    public static Vector2 ReadMousePos() { return Input.mousePosition; }
+    public static bool ReadRespawnButtonDown() { return Input.GetKey(KeyCode.R); }
+    public static bool ReadSelectMenu() { return Input.GetKeyDown(KeyCode.M); }
 }

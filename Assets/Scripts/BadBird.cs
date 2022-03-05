@@ -66,6 +66,17 @@ public class BadBird : MonoBehaviour
         {
             Debug.Log("Birdie sees you");
             sees_you = true;
+            StartCoroutine(kill());
+
+        }
+    }
+    IEnumerator kill()
+    {
+        yield return new WaitForSeconds(5);// Wait a bit
+        if (sees_you)
+        {
+            Debug.Log("You die now");
+            GameController.self.GetPlayer(PlayerType.FLY).GetComponent<FlyController>().Die();
         }
     }
     void OnTriggerExit(Collider other)
