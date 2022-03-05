@@ -10,6 +10,16 @@ public class BadBird : MonoBehaviour
     public float speed = 1.0f;
 
     public bool sees_you = false;
+
+    private SpriteRenderer birdie;
+
+    public GameObject schnabelPrefab;
+
+    private void Awake()
+    {
+        birdie = GetComponent<SpriteRenderer>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +36,18 @@ public class BadBird : MonoBehaviour
     {
         this.moveToNextCheckpoint();
         //setRotation();
+        //setColor();
+    }
+
+    private void setColor()
+    {
+        if (sees_you)
+        {
+            birdie.color = new Color(birdie.color.r - 10, birdie.color.g - 10, birdie.color.b - 10); 
+        } else
+        {
+            birdie.color = new Color(birdie.color.r + 1, birdie.color.g + 1, birdie.color.b + 1);
+        }
     }
 
     private void setRotation()
@@ -62,7 +84,7 @@ public class BadBird : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && other.GetComponent<PlayerMovement>().visible)
         {
             Debug.Log("Birdie sees you");
             sees_you = true;
@@ -76,9 +98,13 @@ public class BadBird : MonoBehaviour
         if (sees_you)
         {
             Debug.Log("You die now");
+            schnabelPrefab.GetComponent<Schnabel>().kill = true;
             GameController.self.GetPlayer(PlayerType.FLY).GetComponent<FlyController>().Die();
         }
     }
+
+    
+
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
