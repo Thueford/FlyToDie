@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MatPostProc
-  m_Shader: {fileID: 4800000, guid: c9530d086f03af644b8defa405a1acf8, type: 3}
+  m_Name: MatCRT
+  m_Shader: {fileID: 4800000, guid: a209e5ba2d765e444ada9d1cef0aceeb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -56,12 +56,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _StarburstTex:
-        m_Texture: {fileID: 2800000, guid: 283a61b575bfb8a49955039e0bfa4a74, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _CAAmount: 0.0005
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -75,12 +74,8 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TexHeight: 512
-    - _TexWidth: 512
     - _UVSec: 0
     - _ZWrite: 1
-    - _horizontal: 0
-    - _vignette: 0.8
     - _vignetteAmount: 0.8
     - _vignetteWidth: 0.1
     m_Colors:
