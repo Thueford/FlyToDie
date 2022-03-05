@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [Range(0, 100)] public float maxHSpeed = 10;
     private const int angleSpeed = 360;
     public bool visible = true;
+    public bool birdie_sees_you = false;
     private Camera cam;
     private void Awake()
     {
@@ -54,5 +55,7 @@ public class PlayerMovement : MonoBehaviour
             visible = true;
         }
     }
+
+    
 
 }
