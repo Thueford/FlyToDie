@@ -24,6 +24,7 @@ public class FieldOfView : MonoBehaviour {
     private Vector3 origin;
     private float startingAngle;
 
+
     private void Awake() {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
