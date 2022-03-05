@@ -50,7 +50,6 @@ public class FlyController : MonoBehaviour
         dragged = null;
     }
 
-<<<<<<< HEAD
     public void Die()
     {
         //handle death
@@ -92,8 +91,6 @@ public class FlyController : MonoBehaviour
     }
 
 
-=======
->>>>>>> 535b23387879e0017e6aea528ef6712f07d02497
     private void FixedUpdate()
     {
         if (dragged) dragged.velocity = rb.velocity;
