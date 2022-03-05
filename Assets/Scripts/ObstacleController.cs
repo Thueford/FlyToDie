@@ -12,19 +12,51 @@ public class ObstacleController : MonoBehaviour
 
     public float speed = 1.0f;
 
+    public enum ObstacleStatus { NOTDESTROYABLE, DESTROYABLE, DESTROYED}
+    public ObstacleStatus obstacleStatus = ObstacleStatus.NOTDESTROYABLE;
+
+
+    public GameObject notDestroyableObject;
+    public GameObject destroyableObject;
+    public GameObject destroyedObject;
+
+
+    private GameObject[] gameObjects;
+    private GameObject activeObject;
+
     // route where to go 
     public List<Vector3> checkpoints = new List<Vector3>();
     private int checkpointCounter = 0;
 
     private Renderer renderer;
-    
 
     private void Awake()
     {
+        //if (!notDestroyableObject) notDestroyableObject = gameObject.GetComponent<Sp>
+        gameObjects = new GameObject[3] { notDestroyableObject, destroyableObject, destroyedObject};
+        foreach (GameObject g in gameObjects)
+        {
+            if (g != null)
+            {
+                g.SetActive(false);
+            }
+        }
+
         this.renderer = gameObject.GetComponent<Renderer>();
         if (this.hidden) {
             this.Hide();
         }
+
+        if (this.destroyable)
+        {
+            activeObject = destroyableObject;
+
+        } else
+        {
+            activeObject = notDestroyableObject;
+        }
+
+        if (activeObject != null) activeObject.SetActive(true);
     }
 
     // Start is called before the first frame update
@@ -36,7 +68,7 @@ public class ObstacleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.GetComponent<BoxCollider>().isTrigger)
+        if (transform.GetComponentInChildren<BoxCollider>().isTrigger)
         {
             Debug.Log("Trigger");
         }
@@ -94,5 +126,20 @@ public class ObstacleController : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void destroy()
+    {
+        if (this.destroyable)
+        {
+            SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                
+            } else
+            {
+                Debug.LogError("Forgot to add a destroyed object to this");
+            }
+        }
     }
 }
