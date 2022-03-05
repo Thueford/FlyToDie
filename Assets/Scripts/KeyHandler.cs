@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,11 @@ public class KeyHandler : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) dir.z += 1;
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) dir.z -= 1;
         return dir;
+    }
+
+    internal static bool ReadDragInput()
+    {
+        return Input.GetKeyDown(KeyCode.E);
     }
 
     public static bool ReadMaggotSwitch()
