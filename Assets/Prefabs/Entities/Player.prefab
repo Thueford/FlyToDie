@@ -49,7 +49,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 2
 --- !u!65 &3635649560846220047
 BoxCollider:
@@ -97,6 +97,19 @@ MonoBehaviour:
   below: []
   rb: {fileID: 0}
   dragged: {fileID: 0}
+--- !u!65 &3734350865655241673
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8860946885876079132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.40353188, y: 3.1825, z: 0.62654847}
+  m_Center: {x: 0.03621956, y: -1.3795667, z: -0.03553909}
 --- !u!95 &6261955970268889923
 Animator:
   serializedVersion: 3
@@ -116,19 +129,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &3734350865655241673
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8860946885876079132}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.40353188, y: 3.1825, z: 0.62654847}
-  m_Center: {x: 0.03621956, y: -1.3795667, z: -0.03553909}
 --- !u!1001 &8518842297066088269
 PrefabInstance:
   m_ObjectHideFlags: 0
