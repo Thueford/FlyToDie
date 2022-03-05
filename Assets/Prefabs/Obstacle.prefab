@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3288395158094156691}
   - component: {fileID: 1501146841244912448}
   - component: {fileID: 1649271721793454246}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   destroyable: 1
   moveable: 1
   pushable: 1
-  enableCheckpoints: 1
+  enableCheckpoints: 0
   hidden: 0
   speed: 1
   checkpoints:
