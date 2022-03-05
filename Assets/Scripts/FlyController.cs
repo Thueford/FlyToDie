@@ -8,11 +8,23 @@ public class FlyController : MonoBehaviour
     [ReadOnly]
     public Rigidbody rb, dragged;
     public GameObject DeadPrefab;
+    public GameObject ExplosionPrefab;
+
+    public enum FlyType
+    {
+        DEFAULT, EXPLOSION, ICE
+    }
+
+    public FlyType flyType = FlyType.DEFAULT;
+
+    public Dictionary<FlyType, int>FlyCounter;
     
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        FlyCounter = new Dictionary<FlyType, int>();
     }
 
     private void Update()
@@ -42,11 +54,11 @@ public class FlyController : MonoBehaviour
 
     public void Die()
     {
+        //handle death
+        this.handleDeath();
+
         Debug.Log("DIE MTFK DIEEE!!");
-        Drop();
-        GameObject dead = Instantiate(DeadPrefab, transform.position, transform.rotation);
-        dead.GetComponent<Rigidbody>().AddForce(150 * Vector3.up);
-        dead.GetComponent<Rigidbody>().rotation = Random.rotation;
+        
         StartCoroutine(Respawn());
     }
 
@@ -60,6 +72,20 @@ public class FlyController : MonoBehaviour
         transform.position = GameController.self.curLvl.startPos;
         transform.GetChild(0).gameObject.SetActive(true);
         KeyHandler.enableMovement = true;
+    }
+
+    private void handleDeath()
+    {
+        Drop();
+        if (this.flyType == FlyType.DEFAULT)
+        {
+            GameObject dead = Instantiate(DeadPrefab, transform.position, transform.rotation);
+            dead.GetComponent<Rigidbody>().AddForce(150 * Vector3.up);
+            dead.GetComponent<Rigidbody>().rotation = Random.rotation;
+        } else if (this.flyType == FlyType.EXPLOSION)
+        {
+            GameObject explosion = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
+        }
     }
 
 

@@ -101,6 +101,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   dragged: {fileID: 0}
   DeadPrefab: {fileID: 2941462236079272147, guid: f1b3ce5063c095f49bde40a07188564d, type: 3}
+  ExplosionPrefab: {fileID: 6219464887462307076, guid: a37a6ca473276d24ea5769c532975de6, type: 3}
+  flyType: 0
 --- !u!114 &8763395455542908436
 MonoBehaviour:
   m_ObjectHideFlags: 0

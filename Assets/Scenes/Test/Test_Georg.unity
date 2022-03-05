@@ -303,6 +303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frosch
       objectReference: {fileID: 0}
+    - target: {fileID: 4942722606011395717, guid: c80b3b767915ffb45a590ad6ae63e7f4, type: 3}
+      propertyPath: viewDistance
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c80b3b767915ffb45a590ad6ae63e7f4, type: 3}
 --- !u!1001 &566422490

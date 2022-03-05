@@ -65,8 +65,8 @@ public class EnemyController : MonoBehaviour
             Transform testTransform = transform;
 
             float angl = Vector3.Angle(transform.forward, new Vector3(dplayerPos.x, 0, dplayerPos.z));
-            Debug.Log(angl);
-             if (angl <= fov/2 || targetFound)
+            // Debug.Log(angl);
+            if (angl <= fov/2 || targetFound)
             {
                 targetFound = true;
                 Vector3 dVector = new Vector3(dplayerPos.x, 0, dplayerPos.z);
@@ -81,8 +81,8 @@ public class EnemyController : MonoBehaviour
             {
                 moving = false;
                 targetFound = false;
-                // kill player here
-                //playerCollider.gameObject.t
+                playerCollider.gameObject.GetComponent<FlyController>().Die(); //.GetPlayer(PlayerType.FLY).die
+
             }
         }
     }
