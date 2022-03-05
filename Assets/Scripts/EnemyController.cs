@@ -37,9 +37,12 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         mesh = transform.GetChild(0).GetComponentInChildren<MeshFilter>().mesh = mesh;
-        Debug.Log(transform.gameObject.GetComponent<MeshRenderer>().material);
 
-        this.drawPov();
+        if (this.enablePov)
+        {
+            this.drawPov();
+        }
+        
     }
 
     // Update is called once per frame
@@ -59,9 +62,11 @@ public class EnemyController : MonoBehaviour
             dplayerPos = transform.position - playerPos;
 
 
+            Transform testTransform = transform;
+
             float angl = Vector3.Angle(transform.forward, new Vector3(dplayerPos.x, 0, dplayerPos.z));
             Debug.Log(angl);
-            if (angl <= fov/2 || targetFound)
+             if (angl <= fov/2 || targetFound)
             {
                 targetFound = true;
                 Vector3 dVector = new Vector3(dplayerPos.x, 0, dplayerPos.z);
@@ -75,6 +80,7 @@ public class EnemyController : MonoBehaviour
             if (angl < 0.5)
             {
                 moving = false;
+                targetFound = false;
                 // kill player here
                 //playerCollider.gameObject.t
             }
