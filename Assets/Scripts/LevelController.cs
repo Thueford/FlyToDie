@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    public Vector3 startPos;
+    public Vector3 startPosFly, startPosMaggot;
 
     // Start is called before the first frame update
     void Start()
     {
-        startPos = GameController.self.GetPlayer(PlayerType.FLY).transform.position;
         GameController.self.SetLevel(this);
     }
 }

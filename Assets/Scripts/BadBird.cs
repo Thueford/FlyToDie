@@ -99,7 +99,7 @@ public class BadBird : MonoBehaviour
         {
             Debug.Log("You die now");
             schnabelPrefab.GetComponent<Schnabel>().kill = true;
-            GameController.self.GetPlayer(PlayerType.FLY).GetComponent<FlyController>().Die();
+            GameController.self.GetPlayer(PlayerType.FLY).GetComponent<KillController>().Die();
         }
     }
 

@@ -18,7 +18,7 @@ public class FlyController : MonoBehaviour
     public FlyType flyType = FlyType.DEFAULT;
 
     public Dictionary<FlyType, int>FlyCounter;
-    
+
 
     private void Awake()
     {
@@ -36,8 +36,6 @@ public class FlyController : MonoBehaviour
             else
                 Drop();
         }
-        if (KeyHandler.ReadKillInput())
-            Die();
     }
 
 
@@ -52,6 +50,7 @@ public class FlyController : MonoBehaviour
         dragged = null;
     }
 
+<<<<<<< HEAD
     public void Die()
     {
         //handle death
@@ -93,6 +92,8 @@ public class FlyController : MonoBehaviour
     }
 
 
+=======
+>>>>>>> 535b23387879e0017e6aea528ef6712f07d02497
     private void FixedUpdate()
     {
         if (dragged) dragged.velocity = rb.velocity;

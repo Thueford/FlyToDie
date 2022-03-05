@@ -81,7 +81,7 @@ public class EnemyController : MonoBehaviour
             {
                 moving = false;
                 targetFound = false;
-                playerCollider.gameObject.GetComponent<FlyController>().Die(); //.GetPlayer(PlayerType.FLY).die
+                playerCollider.gameObject.GetComponent<KillController>().Die();
 
             }
         }
