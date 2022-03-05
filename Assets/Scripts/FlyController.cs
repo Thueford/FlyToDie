@@ -67,7 +67,7 @@ public class FlyController : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        transform.position = GameController.self.curLvl.startPos;
+        transform.position = GameController.self.curLvl.startPosFly;
         transform.GetChild(0).gameObject.SetActive(true);
         KeyHandler.enableMovement = true;
     }
