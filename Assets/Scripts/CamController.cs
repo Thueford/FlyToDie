@@ -10,7 +10,7 @@ public class CamController : MonoBehaviour
     [Range(1, 50)]
     public float lazyness = 10;
     public GameObject target;
-    public Vector3 offset = new Vector3(0, 7, -3);
+    public Vector3 offset = new Vector3(0, 4, -1);
 
     private void Awake() => self = this;
 

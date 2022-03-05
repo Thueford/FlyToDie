@@ -1,32 +1,32 @@
 fileFormatVersion: 2
-guid: de654f3c36946224ca949b27599fe9a3
+guid: ca98d5a21f595b2408270eaae37fb728
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -3573150413130140859
-    second: "W\xFCrfel|Bein.001Action"
+      74: 2588890516215945848
+    second: Alles|AllesAction
   - first:
-      74: 1257203005868228451
-    second: "W\xFCrfel|Bein.002Action"
+      74: 5118450789091386893
+    second: Alles|Bein.001Action
   - first:
-      74: -3005983454041188381
-    second: "W\xFCrfel|BeinAction"
+      74: 9085089565678851271
+    second: Alles|Bein.002Action
   - first:
-      74: 8120496321192502757
-    second: "W\xFCrfel|Fl\xFCgel.001Action"
+      74: -6358510690779580549
+    second: Alles|BeinAction
   - first:
-      74: -4159817425010092210
-    second: "W\xFCrfel|Fl\xFCgelAction"
+      74: -705238224613919750
+    second: "Alles|Fl\xFCgel.001Action"
   - first:
-      74: -4962545220153987383
-    second: "W\xFCrfel|KugelAction"
+      74: 7511489721750872765
+    second: "Alles|Fl\xFCgelAction"
   - first:
-      74: 4064259623941752943
-    second: "W\xFCrfel|W\xFCrfel.001Action"
+      74: -758222524348207631
+    second: Alles|KugelAction
   - first:
-      74: 1191504206189847102
-    second: "W\xFCrfel|W\xFCrfelAction"
+      74: -475790176690738271
+    second: "Alles|W\xFCrfel.001Action"
   externalObjects: {}
   materials:
     materialImportMode: 2
