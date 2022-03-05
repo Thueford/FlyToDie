@@ -11,10 +11,7 @@ public class ObstacleController : MonoBehaviour
     public bool hidden = false;
 
     public float speed = 1.0f;
-
-    public enum ObstacleStatus { NOTDESTROYABLE, DESTROYABLE, DESTROYED}
-    public ObstacleStatus obstacleStatus = ObstacleStatus.NOTDESTROYABLE;
-
+    public bool destroyed = false;
 
     public GameObject notDestroyableObject;
     public GameObject destroyableObject;
@@ -44,6 +41,14 @@ public class ObstacleController : MonoBehaviour
             activeObject = destroyableObject;
         else
             activeObject = notDestroyableObject;
+<<<<<<< HEAD
+            if (destroyed)
+            {
+                activeObject = destroyedObject;
+            }
+        }
+=======
+>>>>>>> 535b23387879e0017e6aea528ef6712f07d02497
 
         if (activeObject != null) activeObject.SetActive(true);
     }
@@ -105,10 +110,15 @@ public class ObstacleController : MonoBehaviour
     {
         if (this.destroyable)
         {
-            SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
-            if (sr != null)
+            if (destroyableObject != null)
             {
+<<<<<<< HEAD
+                this.activeObject.SetActive(false);
+                this.activeObject = destroyedObject;
+                if (this.activeObject) this.activeObject.SetActive(true);
+=======
 
+>>>>>>> 535b23387879e0017e6aea528ef6712f07d02497
             } else
             {
                 Debug.LogError("Forgot to add a destroyed object to this");

@@ -50,6 +50,50 @@ public class FlyController : MonoBehaviour
         dragged = null;
     }
 
+<<<<<<< HEAD
+    public void Die()
+    {
+        //handle death
+        this.handleDeath();
+
+        Debug.Log("DIE MTFK DIEEE!!");
+        
+        StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
+        KeyHandler.enableMovement = false;
+
+        yield return new WaitForSeconds(3f);
+
+        transform.position = GameController.self.curLvl.startPos;
+        transform.GetChild(0).gameObject.SetActive(true);
+        KeyHandler.enableMovement = true;
+    }
+
+    private void handleDeath()
+    {
+        Drop();
+        if (this.flyType == FlyType.DEFAULT)
+        {
+            GameObject dead = Instantiate(DeadPrefab, transform.position, transform.rotation);
+            dead.GetComponent<Rigidbody>().AddForce(150 * Vector3.up);
+            dead.GetComponent<Rigidbody>().rotation = Random.rotation;
+        } else if (this.flyType == FlyType.EXPLOSION)
+        {
+            GameObject explosion = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
+            foreach(ObstacleController o in below)
+            {
+                o.destroy();
+            }
+        }
+    }
+
+
+=======
+>>>>>>> 535b23387879e0017e6aea528ef6712f07d02497
     private void FixedUpdate()
     {
         if (dragged) dragged.velocity = rb.velocity;
@@ -57,7 +101,7 @@ public class FlyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ObstacleController o = other.GetComponent<ObstacleController>();
+        ObstacleController o = other.GetComponentInParent <ObstacleController>();
         if (o) below.Add(o);
     }
 
