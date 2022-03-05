@@ -85,6 +85,10 @@ public class FlyController : MonoBehaviour
         } else if (this.flyType == FlyType.EXPLOSION)
         {
             GameObject explosion = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
+            foreach(ObstacleController o in below)
+            {
+                o.destroy();
+            }
         }
     }
 
@@ -96,7 +100,7 @@ public class FlyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ObstacleController o = other.GetComponent<ObstacleController>();
+        ObstacleController o = other.GetComponentInParent <ObstacleController>();
         if (o) below.Add(o);
     }
 
