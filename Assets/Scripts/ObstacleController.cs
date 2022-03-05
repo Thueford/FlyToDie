@@ -7,7 +7,7 @@ public class ObstacleController : MonoBehaviour
     public bool destroyable = false;
     public bool moveable = false;
     public bool pushable = false;
-    public bool enableCheckpoints = true;
+    public bool enableCheckpoints = false;
     public bool hidden = false;
 
     public float speed = 1.0f;
@@ -36,7 +36,10 @@ public class ObstacleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.GetComponent<BoxCollider>().isTrigger)
+        {
+            Debug.Log("Trigger");
+        }
     }
 
     private void FixedUpdate()
