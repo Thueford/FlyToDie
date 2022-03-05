@@ -40,15 +40,15 @@ public class ObstacleController : MonoBehaviour
         if (this.destroyable)
             activeObject = destroyableObject;
         else
+        { 
             activeObject = notDestroyableObject;
-<<<<<<< HEAD
+
             if (destroyed)
             {
                 activeObject = destroyedObject;
             }
         }
-=======
->>>>>>> 535b23387879e0017e6aea528ef6712f07d02497
+
 
         if (activeObject != null) activeObject.SetActive(true);
     }
@@ -112,13 +112,11 @@ public class ObstacleController : MonoBehaviour
         {
             if (destroyableObject != null)
             {
-<<<<<<< HEAD
+
                 this.activeObject.SetActive(false);
                 this.activeObject = destroyedObject;
                 if (this.activeObject) this.activeObject.SetActive(true);
-=======
 
->>>>>>> 535b23387879e0017e6aea528ef6712f07d02497
             } else
             {
                 Debug.LogError("Forgot to add a destroyed object to this");
