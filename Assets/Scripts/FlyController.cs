@@ -18,7 +18,7 @@ public class FlyController : MonoBehaviour
     public FlyType flyType = FlyType.DEFAULT;
 
     public Dictionary<FlyType, int>FlyCounter;
-    
+
 
     private void Awake()
     {
@@ -36,8 +36,6 @@ public class FlyController : MonoBehaviour
             else
                 Drop();
         }
-        if (KeyHandler.ReadKillInput())
-            Die();
     }
 
 
@@ -51,43 +49,6 @@ public class FlyController : MonoBehaviour
         if (dragged) dragged.drag = 10;
         dragged = null;
     }
-
-    public void Die()
-    {
-        //handle death
-        this.handleDeath();
-
-        Debug.Log("DIE MTFK DIEEE!!");
-        
-        StartCoroutine(Respawn());
-    }
-
-    IEnumerator Respawn()
-    {
-        transform.GetChild(0).gameObject.SetActive(false);
-        KeyHandler.enableMovement = false;
-
-        yield return new WaitForSeconds(3f);
-
-        transform.position = GameController.self.curLvl.startPos;
-        transform.GetChild(0).gameObject.SetActive(true);
-        KeyHandler.enableMovement = true;
-    }
-
-    private void handleDeath()
-    {
-        Drop();
-        if (this.flyType == FlyType.DEFAULT)
-        {
-            GameObject dead = Instantiate(DeadPrefab, transform.position, transform.rotation);
-            dead.GetComponent<Rigidbody>().AddForce(150 * Vector3.up);
-            dead.GetComponent<Rigidbody>().rotation = Random.rotation;
-        } else if (this.flyType == FlyType.EXPLOSION)
-        {
-            GameObject explosion = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
-        }
-    }
-
 
     private void FixedUpdate()
     {

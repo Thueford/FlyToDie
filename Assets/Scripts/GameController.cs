@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour
     internal void SetLevel(LevelController level)
     {
         curLvl = level;
+        foreach (var p in players)
+            p.GetComponent<KillController>().SetRespawnPos();
     }
 
     public void TogglePlayerType()
@@ -42,8 +44,8 @@ public class GameController : MonoBehaviour
     public void SetPlayerType(PlayerType type)
     {
         playerType = type;
-        foreach (PlayerMovement pm in players) pm.enabled = false;
-        players[(int)type].enabled = true;
+        foreach (PlayerMovement pm in players) pm.SetEnabled(false);
+        players[(int)type].SetEnabled(true);
         CamController.self.target = players[(int)type].gameObject;
     }
 
