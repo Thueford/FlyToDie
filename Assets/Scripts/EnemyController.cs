@@ -81,7 +81,7 @@ public class EnemyController : MonoBehaviour
             {
                 moving = false;
                 targetFound = false;
-                playerCollider.gameObject.GetComponent<KillController>().Die();
+                 if (playerCollider != null) playerCollider.gameObject.GetComponent<KillController>().Die();
 
             }
         }

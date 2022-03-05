@@ -56,8 +56,7 @@ public class ObstacleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.GetComponent<BoxCollider>().isTrigger)
-            Debug.Log("Trigger");
+
     }
 
     private void FixedUpdate()
@@ -121,6 +120,7 @@ public class ObstacleController : MonoBehaviour
             {
                 Debug.LogError("Forgot to add a destroyed object to this");
             }
+            transform.FindChild("ColliderContainer").gameObject.SetActive(false);
         }
     }
 }

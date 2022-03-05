@@ -72,7 +72,7 @@ public class FlyController : MonoBehaviour
         KeyHandler.enableMovement = true;
     }
 
-    private void handleDeath()
+    public void handleDeath()
     {
         Drop();
         if (this.flyType == FlyType.DEFAULT)

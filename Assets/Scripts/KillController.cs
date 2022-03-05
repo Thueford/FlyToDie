@@ -29,6 +29,13 @@ public class KillController : MonoBehaviour
 
     public void Die()
     {
+        // if fly
+        FlyController fly = gameObject.GetComponent<FlyController>();
+        if (fly != null)
+        {
+            fly.handleDeath();
+        }
+
         Debug.Log("DIE MTFK DIEEE!!");
         GameObject dead = Instantiate(DeadPrefab, transform.position, transform.rotation);
         dead.GetComponent<Rigidbody>().AddForce(150 * Vector3.up);
