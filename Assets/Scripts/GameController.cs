@@ -12,6 +12,13 @@ public class GameController : MonoBehaviour
 
     public PlayerMovement[] players;
 
+    public static GameController self;
+
+    private void Awake()
+    {
+        self = this;
+    }
+
     void Update()
     {
         if (KeyHandler.ReadMaggotSwitch())
@@ -31,5 +38,10 @@ public class GameController : MonoBehaviour
         foreach (PlayerMovement pm in players) pm.enabled = false;
         players[(int)type].enabled = true;
         CamController.self.target = players[(int)type].gameObject;
+    }
+
+    public PlayerMovement GetPlayer(PlayerType type)
+    {
+        return players[(int)type];
     }
 }

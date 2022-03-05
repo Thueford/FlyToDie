@@ -36,7 +36,7 @@ public class SoundHandler : MonoBehaviour
         {
             if (clips.ContainsKey(c.name))
                 throw new ArgumentException("Two same Audio Clip Names");
-            else 
+            else
                 clips.Add(c.name, c.clip);
         }
     }
@@ -60,7 +60,7 @@ public class SoundHandler : MonoBehaviour
         // self.WalkSource.volume = volEffects;
     }
 
-    public static void PlayClip(string s) => PlayClip(clips[s]);
+    public static void PlayClip(string s) => PlayClick(); // TODO: PlayClip(clips[s]);
 
     public static void PlayClick()
     {

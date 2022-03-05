@@ -6,11 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public List<ObstacleController> below = new List<ObstacleController>();
     public Rigidbody rb, dragged;
-
+    
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
 
     private void Update()
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if (dragged) dragged.velocity = rb.velocity;
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,4 +56,6 @@ public class PlayerController : MonoBehaviour
         if (dragged && o.gameObject == dragged.gameObject) Drop();
         if (o) below.Remove(o);
     }
+
+    
 }

@@ -1,0 +1,172 @@
+﻿#pragma kernel Init
+#pragma kernel Update
+#pragma kernel Emit
+
+#define THREADS 1024
+
+#include "./Particle.cginc"
+
+float c : SV_DispatchThreadID;
+float rand(float3 o) {
+    return frac(sin(dot(o*c, float3(12.9898, 78.233, 45.5432))) * 43758.5453);
+}
+float ran(float3 o) {
+    return 2 * rand(o) - 1;
+}
+
+
+RWStructuredBuffer<Particle> _Particles;
+AppendStructuredBuffer<uint> _Dead;
+ConsumeStructuredBuffer<uint> _Alive;
+
+
+int _Flags;
+
+float4 _Attractor;
+
+float _SizeVel;
+float _DeltaTime;
+Texture2D<float4> _ColorGrad;
+float _ColorSteps;
+
+#define getAge(life) (1 - life.x / life.y)
+
+float4 getLifeColor(float2 life, float seed)
+{
+    float4 color, color2;
+    //SamplerState sampler_MainTex;
+    //color = _ColorGrad.Sample(sampler_MainTex, float2(round(_ColorSteps * getAge(life)), 0));
+    color = _ColorGrad.Load(int3(round(_ColorSteps * getAge(life)), 0, 0));
+    if (F(P_CLRVARY)) {
+        color2 = _ColorGrad.Load(int3(round(_ColorSteps * getAge(life)), 1, 0));
+        color = lerp(color, color2, seed);
+    }
+    return color;
+}
+
+void DoUpdate(uint3 id)
+{
+    Particle p = _Particles[id.x];
+    if (p.size.w == 0) return;
+    
+    if (p.size.z < _DeltaTime) {
+        _Dead.Append(id.x);
+        _Particles[id.x].size.w = 0;
+        return;
+    }
+    
+    //float3 r = normalize(_PosParent - p.pos);
+    //float f = pow(length(p.vel), 2) * r;
+    //p.vel += p.radial * f * _DeltaTime;
+    //p.vel += p.radial * r * _DeltaTime;
+    
+    float3 magnet = _Attractor.w * normalize(_Attractor.xyz - p.pos);
+    
+    p.size.z -= _DeltaTime;
+    p.size.xy += _SizeVel * _DeltaTime;
+    p.vel += p.force * _DeltaTime;
+    p.pos += (p.vel + magnet) * _DeltaTime;
+    if (F(P_CLRGRAD)) p.color = getLifeColor(p.size.zw, p.rand);
+
+    _Particles[id.x] = p;
+}
+
+void DoInitUpdate(uint3 id)
+{
+    Particle p = _Particles[id.x];
+    float age = p.size.w * p.rand - _DeltaTime;
+    for (float i = 0; i < age; i += _DeltaTime) DoUpdate(id);
+}
+
+[numthreads(THREADS, 1, 1)]
+void Update(uint3 id : SV_DispatchThreadID)
+{
+    if (F(P_PREWARM)) DoInitUpdate(id);
+    else DoUpdate(id);
+}
+
+
+float _Lifetime;
+float2 _Size;
+float3 _PosParent, _SpdParent;
+float4 _Color, _Color2, _Seeds;
+
+float3 _PosOffset, _SpdOffset, _ForceOffset, _PosFacOffset, _RadialOffset;
+float3 _PosScale, _SpdScale, _ForceScale, _PosFacScale, _RadialScale;
+int _PosShape, _SpdShape, _ForceShape, _PosFacShape, _RadialShape;
+
+float3 sqrNormalize(float3 v) {
+    float3 av = abs(v);
+    return v / max(max(av.x, av.y), av.z);
+}
+
+float3 getShaped(float3 d, int shape)
+{
+    switch (shape)
+    {
+        case S_DOT: return 0;
+        
+        // TODO 2d: x: rel w/h 
+        case S_CIRCLE: 
+            d.y = 0;
+            return normalize(d);
+        
+        case S_RECT:
+            d.y = 0;
+            return sqrNormalize(d);
+        
+        case S_SPHERE: return normalize(d);
+        case S_CUBE: return sqrNormalize(d);
+        default: return d;
+    }
+}
+
+[numthreads(1, 1, 1)]
+void Emit()
+{
+    uint id = _Alive.Consume();
+    Particle p = _Particles[id];
+    c = id + 1;
+    
+    p.size.xy = _Size;
+    p.size.zw = _Lifetime;
+    p.rand = rand(_Seeds.wzy);
+    
+    float3 d;
+    
+    // position
+    d = float3(ran(_Seeds.xzy), ran(_Seeds.yxz), ran(_Seeds.zyx));
+    d = getShaped(d, _PosShape);
+    p.pos = d * (_PosOffset + _PosScale * rand(_Seeds.wxy));
+    //p.pos = mul(_Rotation, float4(p.pos, 1)).xyz;
+    
+    // velocity
+    d = float3(ran(_Seeds.xyz), ran(_Seeds.yzx), ran(_Seeds.zxy));
+    d = getShaped(d, _SpdShape);
+    p.vel = _SpdOffset.xyz + _PosFacOffset * p.pos + d * _SpdScale.xyz;
+    //p.vel = mul(_Rotation, float4(p.vel, 1)).xyz;
+    
+    // force
+    d = float3(ran(_Seeds.xyw), ran(_Seeds.yzw), ran(_Seeds.zxw));
+    d = getShaped(d, _ForceShape);
+    p.force = _ForceOffset.xyz + _PosFacScale * p.pos + d * _ForceScale.xyz;
+    //p.force = mul(_Rotation, float4(p.force, 1)).xyz;
+    
+    // radial force
+    //d = float3(ran(_Seeds.xyw), ran(_Seeds.yzw), ran(_Seeds.zxw));
+    // d = getShaped(d, _RadialShape);
+    //p.radial = _RadialOffset.xyz + d * _RadialScale.xyz;
+    
+    p.pos += _PosParent;
+    p.vel += _SpdParent;
+    p.color = F(P_CLRVARY) ? lerp(_Color, _Color2, p.rand) : _Color;
+    
+    _Particles[id] = p;
+}
+
+[numthreads(THREADS, 1, 1)]
+void Init(uint3 id : SV_DispatchThreadID)
+{
+    _Particles[id.x].size.w = 0;
+    _Dead.Append(id.x);
+}

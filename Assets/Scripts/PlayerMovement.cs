@@ -10,11 +10,13 @@ public class PlayerMovement : MonoBehaviour
     [Range(0, 100)] public float moveMult = 20f;
     [Range(0, 100)] public float maxHSpeed = 10;
     private const int angleSpeed = 360;
-
+    public bool visible = true;
+    private Camera cam;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         coll = GetComponent<Collider>();
+        cam = Camera.main;
     }
 
     public Vector3 vec = new Vector3(1, 0, 0);
@@ -36,5 +38,21 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             SoundHandler.StopWalk();
+
+        float dist = Vector3.Distance(transform.position, cam.transform.position);
+        LayerMask layerMask = LayerMask.GetMask("Player");
+        layerMask = ~layerMask;
+        Debug.Log(cam.transform.position);
+        Debug.Log(dist);
+        if (Physics.Raycast(cam.transform.position, -cam.GetComponent<CamController>().offset, dist, layerMask))
+        {
+            Debug.Log("hit");
+            visible = false;
+        }
+        else
+        {
+            visible = true;
+        }
     }
+
 }
