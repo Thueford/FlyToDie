@@ -62,9 +62,9 @@ public class BadBird : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger entered");
         if (other.tag == "Player")
         {
+            Debug.Log("Birdie sees you");
             sees_you = true;
         }
     }

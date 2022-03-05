@@ -43,11 +43,8 @@ public class PlayerMovement : MonoBehaviour
         float dist = Vector3.Distance(transform.position, cam.transform.position);
         LayerMask layerMask = LayerMask.GetMask("Player");
         layerMask = ~layerMask;
-        Debug.Log(cam.transform.position);
-        Debug.Log(dist);
         if (Physics.Raycast(cam.transform.position, -cam.GetComponent<CamController>().offset, dist, layerMask))
         {
-            Debug.Log("hit");
             visible = false;
         }
         else
