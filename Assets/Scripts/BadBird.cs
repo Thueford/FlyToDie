@@ -8,6 +8,7 @@ public class BadBird : MonoBehaviour
     private int checkpointCounter = 0;
 
     public float speed = 1.0f;
+    
 
     public bool sees_you = false;
 

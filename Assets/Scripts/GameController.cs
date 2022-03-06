@@ -15,6 +15,10 @@ public class GameController : MonoBehaviour
 
     public static GameController self;
     public LevelController curLvl;
+    
+
+    public GameObject flyIcon;
+    public GameObject maggotIcon;
 
     private void Awake() => self = this;
 
@@ -36,9 +40,17 @@ public class GameController : MonoBehaviour
     public void TogglePlayerType()
     {
         if (playerType == PlayerType.FLY)
+        {
             SetPlayerType(PlayerType.MAGGOT);
+            IconController.selectIcon(maggotIcon);
+            IconController.unselectIcon(flyIcon);
+        }
         else
+        {
             SetPlayerType(PlayerType.FLY);
+            IconController.selectIcon(flyIcon);
+            IconController.unselectIcon(maggotIcon);
+        }
     }
 
     public void SetPlayerType(PlayerType type)
