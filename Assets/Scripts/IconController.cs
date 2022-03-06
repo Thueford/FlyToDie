@@ -84,15 +84,15 @@ public class IconController : MonoBehaviour
     {
             switch(type) {
                 case FlyType.DEFAULT:
-                    if( normalCounter.GetComponentInParent<TMP_Text>().text == "0")
-                        return false;
-                    normalCounter.GetComponentInParent<TMP_Text>().text = (int.Parse(normalCounter.GetComponentInParent<TMP_Text>().text) - 1).ToString();
+                    // if( normalCounter.GetComponentInParent<TMP_Text>().text == "0")
+                    //    return false;
+                    // normalCounter.GetComponentInParent<TMP_Text>().text = (int.Parse(normalCounter.GetComponentInParent<TMP_Text>().text) - 1).ToString();
                     fly.GetComponent<Image>().color = getIconColor(flyNormal);
                     break;
                 case FlyType.BOMB:
-                    if (bombCounter.GetComponentInParent<TMP_Text>().text == "0")
-                        return false;
-                    bombCounter.GetComponentInParent<TMP_Text>().text = (int.Parse(bombCounter.GetComponentInParent<TMP_Text>().text) - 1).ToString();
+                    // if (bombCounter.GetComponentInParent<TMP_Text>().text == "0")
+                    //    return false;
+                    // bombCounter.GetComponentInParent<TMP_Text>().text = (int.Parse(bombCounter.GetComponentInParent<TMP_Text>().text) - 1).ToString();
                     fly.GetComponent<Image>().color = getIconColor(flyBomb);
                     break;
             }
