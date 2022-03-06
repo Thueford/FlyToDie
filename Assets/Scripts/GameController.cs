@@ -18,10 +18,6 @@ public class GameController : MonoBehaviour
 
     public IconController icon;
 
-
-    public GameObject flyIcon;
-    public GameObject maggotIcon;
-
     private void Awake() => self = this;
 
     private void Start() => SetPlayerType(PlayerType.FLY);
@@ -30,6 +26,20 @@ public class GameController : MonoBehaviour
     {
         if (KeyHandler.ReadMaggotSwitch())
             TogglePlayerType();
+
+        if (KeyHandler.ReadTypeSelect1())
+        {
+            ToggleFlyType(FlyType.DEFAULT);
+        }
+        else if (KeyHandler.ReadTypeSelect2())
+        {
+            ToggleFlyType(FlyType.ICE);
+        }
+        else if (KeyHandler.ReadTypeSelect3())
+        {
+            ToggleFlyType(FlyType.BOMB);
+        }
+
     }
 
     internal void SetLevel(LevelController level)
@@ -76,20 +86,20 @@ public class GameController : MonoBehaviour
     public PlayerMovement GetPlayer(PlayerType type) => players[(int)type];
     public PlayerMovement GetPlayer() => GetPlayer(playerType);
 
-    public void ToggleFlyType()
+    public void ToggleFlyType(FlyType type)
     {
-        if (KeyHandler.ReadTypeSelect1())
+        switch(type)
         {
-            Debug.Log("Normal");
-            icon.setIconColor(FlyType.DEFAULT);
-        } 
-        else if (KeyHandler.ReadTypeSelect2())
-        {
-            icon.setIconColor(FlyType.ICE);
-        }
-        else if (KeyHandler.ReadTypeSelect3())
-        {
-            icon.setIconColor(FlyType.BOMB);
+            case FlyType.DEFAULT:
+                Debug.Log("Normal");
+                icon.setIconColor(FlyType.DEFAULT);
+                break;
+            case FlyType.ICE:
+                icon.setIconColor(FlyType.ICE);
+                break;
+            case FlyType.BOMB:
+                icon.setIconColor(FlyType.BOMB);
+                break;
         }
     }
 }
