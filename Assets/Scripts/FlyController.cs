@@ -50,6 +50,10 @@ public class FlyController : MonoBehaviour
         if (!dragged) return;
         dragged.drag = 10;
         dragged.constraints = RigidbodyConstraints.FreezeAll;
+
+        Transform txt = dragged.transform.Find("txtDrag");
+        if (txt) txt.gameObject.SetActive(false);
+
         dragged = null;
     }
 
@@ -111,7 +115,5 @@ public class FlyController : MonoBehaviour
         below.Remove(o);
 
         if (dragged && o.gameObject == dragged.gameObject) Drop();
-        Transform txt = o.transform.Find("txtDrag");
-        if (txt) txt.gameObject.SetActive(false);
     }
 }
