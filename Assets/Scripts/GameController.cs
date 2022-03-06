@@ -89,10 +89,15 @@ public class GameController : MonoBehaviour
         switch(type)
         {
             case FlyType.DEFAULT:
-                icon.setIconColor(FlyType.DEFAULT);
+                if(icon.setIconColor(FlyType.DEFAULT))
+                {
+                }
                 break;
             case FlyType.BOMB:
-                icon.setIconColor(FlyType.BOMB);
+                if (icon.setIconColor(FlyType.BOMB))
+                {
+
+                }
                 break;
         }
     }
