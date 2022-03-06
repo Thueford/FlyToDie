@@ -64,7 +64,7 @@ public class FlyController : MonoBehaviour
         {
             Drop();
         }
-        else if (flyType == FlyType.EXPLOSION)
+        else if (GameController.self.flyType == global::FlyType.BOMB)
         {
             SoundHandler.PlayClip("explosion");
             GameObject explosion = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
