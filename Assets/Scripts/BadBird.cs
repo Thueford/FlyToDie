@@ -66,9 +66,9 @@ public class BadBird : MonoBehaviour
                 }
 
                 float ang = Vector3.Angle(transform.forward, new Vector3(dcheckpoint.x, 0,dcheckpoint.z).normalized);
-                Debug.Log(transform.forward);
-                Debug.Log(dcheckpoint.normalized);
-                Debug.Log(ang);
+                //Debug.Log(transform.forward);
+                //Debug.Log(dcheckpoint.normalized);
+                //Debug.Log(ang);
                 transform.eulerAngles = new Vector3(0, ang + transform.eulerAngles.y, 0);
             }
             moveTo(checkpoints[checkpointCounter], speed);

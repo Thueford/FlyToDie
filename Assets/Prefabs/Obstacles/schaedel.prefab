@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1941862894180905064}
   - component: {fileID: 1941862894180905065}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ColliderContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1941862895208158159}
   - component: {fileID: 1941862895208158152}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: schadel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1941862895591385526}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: schaedel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
