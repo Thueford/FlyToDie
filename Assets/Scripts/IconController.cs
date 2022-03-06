@@ -15,26 +15,9 @@ public class IconController : MonoBehaviour
 
     private static bool toggleFlag;
 
-    private static Color normalColor;
-    private static Color iceColor;
-    private static Color bombColor;
-
     public IconController()
     {
         toggleFlag = true;
-
-        normalColor = new Color(
-            flyNormal.GetComponent<Image>().color.r,
-            flyNormal.GetComponent<Image>().color.g,
-            flyNormal.GetComponent<Image>().color.b );
-        iceColor = new Color(
-            flyIce.GetComponent<Image>().color.r,
-            flyIce.GetComponent<Image>().color.g,
-            flyIce.GetComponent<Image>().color.b );
-        bombColor = new Color(
-            flyBomb.GetComponent<Image>().color.r,
-            flyBomb.GetComponent<Image>().color.g,
-            flyBomb.GetComponent<Image>().color.b );
     }
 
     public void toggleIconSelect()
@@ -66,17 +49,25 @@ public class IconController : MonoBehaviour
         
     }
 
+    public Color getIconColor(GameObject icon)
+    {
+        return new Color(
+            icon.GetComponent<Image>().color.r,
+            icon.GetComponent<Image>().color.g,
+            icon.GetComponent<Image>().color.b);
+    }
+
     public void setIconColor(FlyType type)
     {
         switch(type) {
             case FlyType.DEFAULT:
-                fly.GetComponent<Image>().color = normalColor;
+                fly.GetComponent<Image>().color = getIconColor(flyNormal);
                 break;
             case FlyType.BOMB:
-                fly.GetComponent<Image>().color = bombColor;
+                fly.GetComponent<Image>().color = getIconColor(flyBomb);
                 break;
             case FlyType.ICE:
-                fly.GetComponent<Image>().color = iceColor;
+                fly.GetComponent<Image>().color = getIconColor(flyIce);
                 break;
             default:
                 break;
