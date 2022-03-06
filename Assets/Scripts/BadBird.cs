@@ -22,21 +22,9 @@ public class BadBird : MonoBehaviour
         birdie = GetComponent<SpriteRenderer>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
-        this.moveToNextCheckpoint();
+        moveToNextCheckpoint();
         //setRotation();
         //setColor();
     }
@@ -60,50 +48,59 @@ public class BadBird : MonoBehaviour
 
     void moveToNextCheckpoint()
     {
-        if (this.checkpoints.Count > this.checkpointCounter)
+        if (checkpoints.Count > checkpointCounter)
         {
-            if (Vector3.Distance(transform.position, this.checkpoints[this.checkpointCounter]) <= Time.fixedDeltaTime * speed)
+            if (Vector3.Distance(transform.position, checkpoints[checkpointCounter]) <= Time.fixedDeltaTime * speed)
             {
-                if (this.checkpointCounter + 1 >= this.checkpoints.Count)
+                Vector3 dcheckpoint;
+                if (checkpointCounter + 1 >= checkpoints.Count)
                 {
-                    this.checkpointCounter = 0;
+                    dcheckpoint = checkpoints[0] - checkpoints[checkpointCounter];
+                    checkpointCounter = 0;
+                    
                 }
                 else
                 {
-                    this.checkpointCounter++;
+                    checkpointCounter++;
+                    dcheckpoint = checkpoints[checkpointCounter - 1] - checkpoints[checkpointCounter];
                 }
+
+                float ang = Vector3.Angle(transform.forward, new Vector3(dcheckpoint.x, 0,dcheckpoint.z).normalized);
+                Debug.Log(transform.forward);
+                Debug.Log(dcheckpoint.normalized);
+                Debug.Log(ang);
+                transform.eulerAngles = new Vector3(0, ang + transform.eulerAngles.y, 0);
             }
-            this.moveTo(this.checkpoints[this.checkpointCounter], this.speed);
+            moveTo(checkpoints[checkpointCounter], speed);
         }
     }
 
     void moveTo(Vector3 pos, float speed)
     {
-        Vector3 delta = transform.position - pos;
-
-        transform.position -= delta.normalized * speed * Time.fixedDeltaTime;
+        Vector3 delta = pos - transform.position;
+        delta.y = 0;
+        transform.position += delta.normalized * speed * Time.fixedDeltaTime;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && other.GetComponent<PlayerMovement>().visible)
+        PlayerMovement pm = other.GetComponent<PlayerMovement>();
+        if (pm && other.CompareTag("Player") && pm.visible)
         {
             Debug.Log("Birdie sees you");
             sees_you = true;
-            StartCoroutine(kill(other.GetComponent<PlayerMovement>().type));
-
+            StartCoroutine(kill(pm.type));
         }
     }
+
     IEnumerator kill(PlayerType pt)
     {
         yield return new WaitForSeconds(time_to_kill);// Wait a bit
         if (sees_you)
         {
             Debug.Log("You die now");
-            if (pt == GameController.self.playerType) { 
-                Camera.main.GetComponentInChildren<Schnabel>().kill = true; 
-            }
-            GameController.self.GetPlayer(pt).GetComponent<KillController>().Die();
+            if (pt == GameController.self.playerType)
+                Camera.main.GetComponentInChildren<Schnabel>().kill = true;
         }
     }
 
@@ -112,9 +109,7 @@ public class BadBird : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
-        {
             sees_you = false;
-        }
     }
 
 }

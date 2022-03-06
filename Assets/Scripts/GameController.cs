@@ -18,6 +18,10 @@ public class GameController : MonoBehaviour
 
     public IconController icon;
 
+
+    public GameObject flyIcon;
+    public GameObject maggotIcon;
+
     private void Awake() => self = this;
 
     private void Start() => SetPlayerType(PlayerType.FLY);
@@ -71,6 +75,5 @@ public class GameController : MonoBehaviour
     }
 
     public PlayerMovement GetPlayer(PlayerType type) => players[(int)type];
-
-     
+    public PlayerMovement GetPlayer() => GetPlayer(playerType);
 }

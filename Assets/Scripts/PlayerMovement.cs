@@ -29,17 +29,18 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 moveForce = KeyHandler.ReadDirInput() * moveMult;
-        if (moveForce.x != 0 || moveForce.z != 0)
+        Vector3 moveDir = KeyHandler.ReadDirInput().normalized;
+        if (moveDir.x != 0 || moveDir.z != 0)
         {
             // rb.AddForce(transform.forward);
             SoundHandler.StartWalk();
 
-            ang = transform.forward.x * moveForce.z - transform.forward.z * moveForce.x;
-            // if (Mathf.Abs(ang) < 0.001) ang = Vector3.Dot(transform.forward, moveForce.normalized);
-            if (Mathf.Abs(ang) > 5) transform.Rotate(0, -Mathf.Sign(ang) * Time.fixedDeltaTime * angleSpeed, 0);
-            else transform.forward = moveForce;
-            rb.AddForce(transform.forward * moveMult);
+            ang = transform.forward.x * moveDir.z - transform.forward.z * moveDir.x;
+            if (Mathf.Abs(ang) < 0.1) ang = Vector3.Dot(transform.forward, moveDir.normalized);
+            if (Mathf.Abs(ang) > 0.1) transform.Rotate(0, -Mathf.Sign(ang) * Time.fixedDeltaTime * angleSpeed, 0);
+            else transform.forward = moveDir;
+
+            rb.AddForce(moveDir * moveMult);
         }
         else
             SoundHandler.StopWalk();
