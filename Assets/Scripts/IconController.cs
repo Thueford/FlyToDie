@@ -60,6 +60,19 @@ public class IconController : MonoBehaviour
         
     }
 
+    public void enableIcon(FlyType type)
+    {
+        switch(type)
+        {
+            case FlyType.DEFAULT:
+                flyNormal.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+                break;
+            case FlyType.BOMB:
+                flyBomb.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+                break;
+        }
+    }
+
     public Color getIconColor(GameObject icon)
     {
         return new Color(
