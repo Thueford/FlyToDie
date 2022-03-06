@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mesh = transform.Find("Pov").GetComponentInChildren<MeshFilter>().mesh = mesh;
+        mesh = transform.GetComponentInChildren<MeshFilter>().mesh = mesh;
         if (enablePov) drawPov();
     }
 
