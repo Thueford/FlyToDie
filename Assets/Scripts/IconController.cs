@@ -18,15 +18,20 @@ public class IconController : MonoBehaviour
     public string flyNormalCount;
 
     private static bool toggleFlag;
+    private GameObject normalCounter;
+    private GameObject bombCounter;
+    private FlyController flyController;
 
     public void Awake()
     {
         toggleFlag = true;
 
-        GameObject normalCounter = GameObject.FindGameObjectWithTag("NormalCounter");
+        flyController = new FlyController();
+
+        normalCounter = GameObject.FindGameObjectWithTag("NormalCounter");
         normalCounter.GetComponentInParent<TMP_Text>().text = flyNormalCount;
 
-        GameObject bombCounter = GameObject.FindGameObjectWithTag("BombCounter");
+        bombCounter = GameObject.FindGameObjectWithTag("BombCounter");
         bombCounter.GetComponent<TMP_Text>().text = flyBombCount;
     }
 
@@ -67,17 +72,20 @@ public class IconController : MonoBehaviour
             icon.GetComponent<Image>().color.b);
     }
 
-    public void setIconColor(FlyType type)
+    public bool setIconColor(FlyType type)
     {
-        switch(type) {
-            case FlyType.DEFAULT:
-                fly.GetComponent<Image>().color = getIconColor(flyNormal);
-                break;
-            case FlyType.BOMB:
-                fly.GetComponent<Image>().color = getIconColor(flyBomb);
-                break;
-            default:
-                break;
-        }
+            switch(type) {
+                case FlyType.DEFAULT:
+                    if( normalCounter.GetComponentInParent<TMP_Text>().text == "0")
+                        return false;
+                    fly.GetComponent<Image>().color = getIconColor(flyNormal);
+                    break;
+                case FlyType.BOMB:
+                    if (bombCounter.GetComponentInParent<TMP_Text>().text == "0")
+                        return false;
+                    fly.GetComponent<Image>().color = getIconColor(flyBomb);
+                    break;
+            }
+            return true;
     }
 }
