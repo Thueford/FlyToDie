@@ -11,6 +11,7 @@ public class SoundHandler : MonoBehaviour
     public AudioSource EffectSource;
     public AudioSource MenuSource;
     public AudioSource WalkSource;
+    public AudioSource AmbienceSource;
 
     [Range(0, 1)]
     public float volume = 1;
@@ -49,39 +50,39 @@ public class SoundHandler : MonoBehaviour
 
     public static void PlayClip(AudioClip c)
     {
-        //self.EffectSource.PlayOneShot(c);
+        self.EffectSource.PlayOneShot(c);
     }
 
     public static void PlayClip(AudioClip[] c)
     {
         //play random clip from list
-        //PlayClip(c[UnityEngine.Random.Range(0, c.Length)]);
+        PlayClip(c[UnityEngine.Random.Range(0, c.Length)]);
     }
 
     public static void SetVolume(float volMusic, float volEffects)
     {
-        /*self.MusicSource.volume = volMusic;
+        self.MusicSource.volume = volMusic;
         self.EffectSource.volume = volEffects;
         self.MenuSource.volume = volEffects;
-        self.WalkSource.volume = volEffects;*/
+        self.WalkSource.volume = volEffects;
     }
 
     public static void PlayClip(string s) => PlayClip(clips[s]);
 
     public static void PlayClick()
     {
-        /*self.MenuSource.Play();*/
+        self.MenuSource.Play();
     }
 
     public static void StartWalk()
     {
-        /*if (!self.WalkSource.isPlaying)
-            self.WalkSource.Play();*/
+        if (!self.WalkSource.isPlaying)
+            self.WalkSource.Play();
     }
 
     public static void StopWalk()
     {
-        /*self.WalkSource.Pause();*/
+        self.WalkSource.Pause();
     }
 
     //public static void SetHPTarget(float frequency) => filterHighValue = frequency;
