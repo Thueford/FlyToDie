@@ -21,7 +21,11 @@ public class GameController : MonoBehaviour
 
     private void Awake() => self = this;
 
-    private void Start() => SetPlayerType(PlayerType.FLY);
+    private void Start()
+    {
+        SetPlayerType(PlayerType.FLY);
+        IconController.toggleFlag = true;
+    }
 
     void Update()
     {

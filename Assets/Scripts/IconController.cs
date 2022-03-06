@@ -18,14 +18,12 @@ public class IconController : MonoBehaviour
     public string flyBombCount;
     public string flyNormalCount;
 
-    private static bool toggleFlag;
+    public static bool toggleFlag;
     private GameObject normalCounter;
     private GameObject bombCounter;
 
     public void Awake()
     {
-        toggleFlag = true;
-
         normalCounter = GameObject.FindGameObjectWithTag("NormalCounter");
         normalCounter.GetComponentInParent<TMP_Text>().text = flyNormalCount;
 
