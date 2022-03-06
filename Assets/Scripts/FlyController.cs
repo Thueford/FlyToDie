@@ -60,8 +60,11 @@ public class FlyController : MonoBehaviour
     // return if corpse should be spawned
     public bool handleDeath()
     {
-        Drop();
-        if (flyType == FlyType.EXPLOSION)
+        if (flyType == FlyType.DEFAULT)
+        {
+            Drop();
+        }
+        else if (flyType == FlyType.EXPLOSION)
         {
             SoundHandler.PlayClip("explosion");
             GameObject explosion = Instantiate(ExplosionPrefab, transform.position, transform.rotation);

@@ -88,6 +88,7 @@ public class GameController : MonoBehaviour
 
     public void ToggleFlyType(FlyType type)
     {
+        flyType = type;
         switch(type)
         {
             case FlyType.DEFAULT:
