@@ -53,10 +53,10 @@ public class FlyController : MonoBehaviour
         dragged = null;
     }
 
-    public void Die()
+    public void Die(bool corpse = true)
     {
         //handle death
-        this.handleDeath();
+        GetComponent<KillController>().Die(corpse);
         Debug.Log("DIE MTFK DIEEE!!");
         StartCoroutine(Respawn());
     }
@@ -73,22 +73,17 @@ public class FlyController : MonoBehaviour
         KeyHandler.enableMovement = true;
     }
 
-    public void handleDeath()
+    // return if corpse should be spawned
+    public bool handleDeath()
     {
         Drop();
-        if (this.flyType == FlyType.DEFAULT)
-        {
-            GameObject dead = Instantiate(DeadPrefab, transform.position, transform.rotation);
-            dead.GetComponent<Rigidbody>().AddForce(150 * Vector3.up);
-            dead.GetComponent<Rigidbody>().rotation = Random.rotation;
-        } else if (this.flyType == FlyType.EXPLOSION)
+        if (flyType == FlyType.EXPLOSION)
         {
             GameObject explosion = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
-            foreach(ObstacleController o in below)
-            {
-                o.Destroy();
-            }
+            foreach(ObstacleController o in below) o.Destroy();
+            return false;
         }
+        return true;
     }
 
 

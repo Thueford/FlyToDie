@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
 
     public static GameController self;
     public LevelController curLvl;
-    
+
 
     public GameObject flyIcon;
     public GameObject maggotIcon;
@@ -74,4 +74,5 @@ public class GameController : MonoBehaviour
     }
 
     public PlayerMovement GetPlayer(PlayerType type) => players[(int)type];
+    public PlayerMovement GetPlayer() => GetPlayer(playerType);
 }
