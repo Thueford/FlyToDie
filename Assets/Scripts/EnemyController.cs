@@ -65,15 +65,18 @@ public class EnemyController : MonoBehaviour
                 float ang = transform.forward.x * moveForce.z - transform.forward.z * moveForce.x;
                 if (Mathf.Abs(ang) > 0.5) transform.Rotate(0, -Mathf.Sign(ang) * Time.fixedDeltaTime * angleSpeed, 0);
                 else transform.forward = moveForce;
+
+
+                if (angl < 2 && !eating)
+                {
+                    eating = true;
+                    Transform toung = transform.Find("zungeCont");
+                    toung.GetComponent<Animator>().Play("ExtendToung");
+                    StartCoroutine(KillPlayer());
+                }
             }
 
-            if (angl < 2 && !eating)
-            {
-                eating = true;
-                Transform toung = transform.Find("zungeCont");
-                toung.GetComponent<Animator>().Play("ExtendToung");
-                StartCoroutine(KillPlayer());
-            }
+            
         }
     }
 
@@ -111,7 +114,7 @@ public class EnemyController : MonoBehaviour
     {
         Vector3 vzero = Vector3.zero;
 
-        int rayCount = 10;
+        int rayCount = 20;
         float angle = -45f;
         float angleIncrease = fov / rayCount;
 

@@ -244,7 +244,7 @@ MonoBehaviour:
   moving: 0
   moveMult: 20
   pov_width: 20
-  viewDistance: 40
+  viewDistance: 30
   enablePov: 1
   eating: 0
   rb: {fileID: 0}
