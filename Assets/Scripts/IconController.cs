@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,13 +21,10 @@ public class IconController : MonoBehaviour
     private static bool toggleFlag;
     private GameObject normalCounter;
     private GameObject bombCounter;
-    private FlyController flyController;
 
     public void Awake()
     {
         toggleFlag = true;
-
-        flyController = new FlyController();
 
         normalCounter = GameObject.FindGameObjectWithTag("NormalCounter");
         normalCounter.GetComponentInParent<TMP_Text>().text = flyNormalCount;
@@ -78,11 +76,13 @@ public class IconController : MonoBehaviour
                 case FlyType.DEFAULT:
                     if( normalCounter.GetComponentInParent<TMP_Text>().text == "0")
                         return false;
+                    normalCounter.GetComponentInParent<TMP_Text>().text = (int.Parse(normalCounter.GetComponentInParent<TMP_Text>().text) - 1).ToString();
                     fly.GetComponent<Image>().color = getIconColor(flyNormal);
                     break;
                 case FlyType.BOMB:
                     if (bombCounter.GetComponentInParent<TMP_Text>().text == "0")
                         return false;
+                    bombCounter.GetComponentInParent<TMP_Text>().text = (int.Parse(bombCounter.GetComponentInParent<TMP_Text>().text) - 1).ToString();
                     fly.GetComponent<Image>().color = getIconColor(flyBomb);
                     break;
             }
