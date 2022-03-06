@@ -90,7 +90,7 @@ public class EnemyController : MonoBehaviour
     {
         Debug.Log(player.name);
         Debug.Log(player);
-        KillController obj = player.gameObject.GetComponent<KillController>();
+        KillController obj = player.GetComponentInParent<KillController>();
         if (obj)
         {
             targetPlayer = obj;
