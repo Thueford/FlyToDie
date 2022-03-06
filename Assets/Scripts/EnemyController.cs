@@ -79,6 +79,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator KillPlayer()
     {
+        SoundHandler.PlayClip("frog");
         yield return new WaitForSeconds(0.17f);
         if (targetPlayer) targetPlayer.Die(false);
         moving = false;
@@ -89,7 +90,7 @@ public class EnemyController : MonoBehaviour
     {
         Debug.Log(player.name);
         Debug.Log(player);
-        KillController obj = player.gameObject.GetComponent<KillController>();
+        KillController obj = player.GetComponentInParent<KillController>();
         if (obj)
         {
             targetPlayer = obj;

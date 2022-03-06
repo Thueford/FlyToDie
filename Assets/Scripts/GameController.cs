@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public FlyType flyType = FlyType.DEFAULT;
 
     public PlayerMovement[] players;
+    public FlyController flyController;
 
     public static GameController self;
     public LevelController curLvl;
@@ -55,11 +56,13 @@ public class GameController : MonoBehaviour
     {
         if (playerType == PlayerType.FLY)
         {
+            SoundHandler.PlayClip("changeToMade");
             SetPlayerType(PlayerType.MAGGOT);
             icon.toggleIconSelect();
         }
         else
         {
+            SoundHandler.PlayClip("changeToFly");
             SetPlayerType(PlayerType.FLY);
             icon.toggleIconSelect();
         }
@@ -91,6 +94,7 @@ public class GameController : MonoBehaviour
             case FlyType.DEFAULT:
                 if(icon.setIconColor(FlyType.DEFAULT))
                 {
+                    
                 }
                 break;
             case FlyType.BOMB:

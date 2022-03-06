@@ -27,6 +27,7 @@ public class KillController : MonoBehaviour
     public void Die(bool corpse = true)
     {
         // if fly
+        SoundHandler.PlayClip("die");
         FlyController fly = gameObject.GetComponent<FlyController>();
         if (fly) corpse = corpse && fly.handleDeath();
 
@@ -47,6 +48,7 @@ public class KillController : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
+        SoundHandler.PlayClip("changeToFly");
         transform.position = respawnPos;
         transform.GetChild(0).gameObject.SetActive(true);
         KeyHandler.enableMovement = true;
