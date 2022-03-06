@@ -198,11 +198,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567546126931473483, guid: b21a2e406cccda648883f957b6ab3b2e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.43
+      value: -3.27
       objectReference: {fileID: 0}
     - target: {fileID: 567546126931473483, guid: b21a2e406cccda648883f957b6ab3b2e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.36
+      value: 14.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 567546126931473483, guid: b21a2e406cccda648883f957b6ab3b2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5023205
+      objectReference: {fileID: 0}
+    - target: {fileID: 567546126931473483, guid: b21a2e406cccda648883f957b6ab3b2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5023205
+      objectReference: {fileID: 0}
+    - target: {fileID: 567546126931473483, guid: b21a2e406cccda648883f957b6ab3b2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.49766874
+      objectReference: {fileID: 0}
+    - target: {fileID: 567546126931473483, guid: b21a2e406cccda648883f957b6ab3b2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.49766862
       objectReference: {fileID: 0}
     - target: {fileID: 567546126931473483, guid: b21a2e406cccda648883f957b6ab3b2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -214,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567546126931473483, guid: b21a2e406cccda648883f957b6ab3b2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -89.467
       objectReference: {fileID: 0}
     - target: {fileID: 567546126931473524, guid: b21a2e406cccda648883f957b6ab3b2e, type: 3}
       propertyPath: checkpoints.Array.size
@@ -284,10 +300,6 @@ PrefabInstance:
     - target: {fileID: 2129834379487119604, guid: ae08999f35ad4af44b8faf62e3377b3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4598879943871075892, guid: ae08999f35ad4af44b8faf62e3377b3b, type: 3}
-      propertyPath: moveMult
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6040657571694586271, guid: ae08999f35ad4af44b8faf62e3377b3b, type: 3}
       propertyPath: m_LocalPosition.x
