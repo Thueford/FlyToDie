@@ -45,3 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerType: 0
   flyType: 0
+  players: []
+  curLvl: {fileID: 0}
+  flyIcon: {fileID: 7811329811865691243, guid: 871d17494d8af05409bd21381b4e70d9, type: 3}
+  maggotIcon: {fileID: 6282065880501326053, guid: 6c861900bc3c9b3438296dfd33eb6c04, type: 3}

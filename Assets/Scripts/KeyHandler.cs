@@ -38,4 +38,9 @@ public class KeyHandler : MonoBehaviour
     public static Vector2 ReadMousePos() { return Input.mousePosition; }
     public static bool ReadRespawnButtonDown() { return Input.GetKey(KeyCode.R); }
     public static bool ReadSelectMenu() { return Input.GetKeyDown(KeyCode.M); }
+
+
+    public static bool ReadTypeSelect1() { return Input.GetKeyDown(KeyCode.Alpha1); }
+    public static bool ReadTypeSelect2() { return Input.GetKeyDown(KeyCode.Alpha2); }
+    public static bool ReadTypeSelect3() { return Input.GetKeyDown(KeyCode.Alpha3); }
 }

@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lensFlare: {fileID: 0}
-  MatBlur: {fileID: 2100000, guid: 5e973568fada50f4ca2be47433005579, type: 2}
-  MatBloom: {fileID: 2100000, guid: 58d98c104d9035f408d532ff69e8c746, type: 2}
+  MatBlur: {fileID: 0}
+  MatBloom: {fileID: 0}
   MatCA: {fileID: 2100000, guid: 23002e5450099ab4d8875b8ec638af24, type: 2}
   MatLensFlare: {fileID: 2100000, guid: 1acde55715ac3cd4fbf4fcb52ae625b4, type: 2}
   MatCRT: {fileID: 2100000, guid: c09266b306b37024dab3648a15838ffe, type: 2}
