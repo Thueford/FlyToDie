@@ -47,5 +47,4 @@ MonoBehaviour:
   flyType: 0
   players: []
   curLvl: {fileID: 0}
-  flyIcon: {fileID: 3171710884273176396, guid: 871d17494d8af05409bd21381b4e70d9, type: 3}
-  maggotIcon: {fileID: 8636021376667676276, guid: 6c861900bc3c9b3438296dfd33eb6c04, type: 3}
+  icon: {fileID: 938121486323793223, guid: 8c3a7bd9adee5be45a024bca89feb4fd, type: 3}

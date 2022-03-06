@@ -36,7 +36,11 @@ public class PlayerMovement : MonoBehaviour
             SoundHandler.StartWalk();
 
             ang = transform.forward.x * moveDir.z - transform.forward.z * moveDir.x;
-            if (Mathf.Abs(ang) < 0.1) ang = Vector3.Dot(transform.forward, moveDir.normalized);
+            if (Mathf.Abs(ang) < 0.1)
+            {
+                ang = Vector3.Dot(transform.forward, moveDir.normalized);
+                if (ang > 0) ang = 0;
+            }
             if (Mathf.Abs(ang) > 0.1) transform.Rotate(0, -Mathf.Sign(ang) * Time.fixedDeltaTime * angleSpeed, 0);
             else transform.forward = moveDir;
 

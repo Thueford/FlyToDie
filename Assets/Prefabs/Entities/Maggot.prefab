@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   coll: {fileID: 0}
-  moveMult: 20
+  moveMult: 30
   maxHSpeed: 5
   visible: 1
   birdie_sees_you: 0

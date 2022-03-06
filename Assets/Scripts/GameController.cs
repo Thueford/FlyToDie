@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
     public static GameController self;
     public LevelController curLvl;
 
+    public IconController icon;
+
 
     public GameObject flyIcon;
     public GameObject maggotIcon;
@@ -46,14 +48,12 @@ public class GameController : MonoBehaviour
         if (playerType == PlayerType.FLY)
         {
             SetPlayerType(PlayerType.MAGGOT);
-            IconController.selectIcon(maggotIcon);
-            IconController.unselectIcon(flyIcon);
+            icon.toggleIconSelect();
         }
         else
         {
             SetPlayerType(PlayerType.FLY);
-            IconController.selectIcon(flyIcon);
-            IconController.unselectIcon(maggotIcon);
+            icon.toggleIconSelect();
         }
     }
 
@@ -75,4 +75,21 @@ public class GameController : MonoBehaviour
 
     public PlayerMovement GetPlayer(PlayerType type) => players[(int)type];
     public PlayerMovement GetPlayer() => GetPlayer(playerType);
+
+    public void ToggleFlyType()
+    {
+        if (KeyHandler.ReadTypeSelect1())
+        {
+            Debug.Log("Normal");
+            icon.setIconColor(FlyType.DEFAULT);
+        } 
+        else if (KeyHandler.ReadTypeSelect2())
+        {
+            icon.setIconColor(FlyType.ICE);
+        }
+        else if (KeyHandler.ReadTypeSelect3())
+        {
+            icon.setIconColor(FlyType.BOMB);
+        }
+    }
 }
