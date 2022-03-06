@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _StarburstTex:
-        m_Texture: {fileID: 2800000, guid: a41a4b1fd3574674ba44a10ae5241dd9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1d561adfdeba8d540abff609cdb9bc7c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
