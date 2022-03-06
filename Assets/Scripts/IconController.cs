@@ -18,12 +18,14 @@ public class IconController : MonoBehaviour
     public string flyBombCount;
     public string flyNormalCount;
 
-    public static bool toggleFlag;
+    private static bool toggleFlag;
     private GameObject normalCounter;
     private GameObject bombCounter;
 
     public void Awake()
     {
+        toggleFlag = false;
+
         normalCounter = GameObject.FindGameObjectWithTag("NormalCounter");
         normalCounter.GetComponentInParent<TMP_Text>().text = flyNormalCount;
 
@@ -31,18 +33,15 @@ public class IconController : MonoBehaviour
         bombCounter.GetComponent<TMP_Text>().text = flyBombCount;
     }
 
-    public void toggleIconSelect()
+    public void SetIcon(bool isFly)
     {
-        Debug.Log("Toggle Icon");
-        if (toggleFlag)
+        if (!isFly)
         {
-            toggleFlag = false;
             unselectIcon(fly);
             selectIcon(maggot);
         }
         else
         {
-            toggleFlag = true;
             unselectIcon(maggot);
             selectIcon(fly);
         }
