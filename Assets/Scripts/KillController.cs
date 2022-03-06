@@ -22,10 +22,7 @@ public class KillController : MonoBehaviour
         Debug.DrawLine(respawnPos - new Vector3(0, 0.1f, 0.1f), respawnPos + new Vector3(0, 0.1f, 0.1f));
     }
 
-    public void SetRespawnPos()
-    {
-        respawnPos = transform.position;
-    }
+    public void SetRespawnPos() => respawnPos = transform.position;
 
     public void Die()
     {

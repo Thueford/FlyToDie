@@ -16,10 +16,9 @@ public class GameController : MonoBehaviour
     public static GameController self;
     public LevelController curLvl;
 
-    private void Awake()
-    {
-        self = this;
-    }
+    private void Awake() => self = this;
+
+    private void Start() => SetPlayerType(PlayerType.FLY);
 
     void Update()
     {
@@ -38,19 +37,25 @@ public class GameController : MonoBehaviour
     {
         if (playerType == PlayerType.FLY)
             SetPlayerType(PlayerType.MAGGOT);
-        else SetPlayerType(PlayerType.FLY);
+        else
+            SetPlayerType(PlayerType.FLY);
     }
 
     public void SetPlayerType(PlayerType type)
     {
         playerType = type;
-        foreach (PlayerMovement pm in players) pm.SetEnabled(false);
-        players[(int)type].SetEnabled(true);
-        CamController.self.target = players[(int)type].gameObject;
+        PlayerMovement cur = players[(int)type];
+
+        GetPlayer(PlayerType.FLY).GetComponent<FlyController>().Drop();
+        CamController.self.target = cur.gameObject;
+
+        foreach (PlayerMovement pm in players)
+        {
+            pm.SetEnabled(cur == pm);
+            pm.GetComponent<Rigidbody>().constraints = cur != pm ? 
+                RigidbodyConstraints.FreezeAll : RigidbodyConstraints.FreezeRotation;
+        }
     }
 
-    public PlayerMovement GetPlayer(PlayerType type)
-    {
-        return players[(int)type];
-    }
+    public PlayerMovement GetPlayer(PlayerType type) => players[(int)type];
 }

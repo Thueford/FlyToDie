@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2475908752556278064}
   - component: {fileID: 6360876317198259891}
   - component: {fileID: 5302062895019100622}
-  - component: {fileID: 2303462497510400363}
   - component: {fileID: 7257149313993764281}
+  - component: {fileID: 9117865413698396128}
   m_Layer: 6
-  m_Name: Made
+  m_Name: Maggot
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,19 +90,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!65 &2303462497510400363
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5645837295968747143}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.11642045, y: 0.10417408, z: 0.53110963}
-  m_Center: {x: -0.005171776, y: -0.0009060204, z: -0.23444518}
 --- !u!114 &7257149313993764281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +105,19 @@ MonoBehaviour:
   rb: {fileID: 0}
   DeadPrefab: {fileID: 6907501185367271074, guid: e9702b1d79cfc77498635cf197016216, type: 3}
   respawnPos: {x: 0, y: 0, z: 0}
+--- !u!135 &9117865413698396128
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5645837295968747143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.17521396
+  m_Center: {x: 0, y: 0, z: 0.0612115}
 --- !u!95 &7940757416642338495
 Animator:
   serializedVersion: 3
@@ -158,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22157318ac645f5478b3bfb51088e051, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22157318ac645f5478b3bfb51088e051, type: 3}
       propertyPath: m_LocalRotation.w

@@ -23,7 +23,6 @@ public class FlyController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
         FlyCounter = new Dictionary<FlyType, int>();
     }
 
@@ -39,14 +38,18 @@ public class FlyController : MonoBehaviour
     }
 
 
-    private void Drag(ObstacleController o)
+    public void Drag(ObstacleController o)
     {
+        if (!o) return;
         dragged = o.GetComponent<Rigidbody>();
+        dragged.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         dragged.drag = 0;
     }
-    private void Drop()
+    public void Drop()
     {
-        if (dragged) dragged.drag = 10;
+        if (!dragged) return;
+        dragged.drag = 10;
+        dragged.constraints = RigidbodyConstraints.FreezeAll;
         dragged = null;
     }
 
@@ -54,9 +57,7 @@ public class FlyController : MonoBehaviour
     {
         //handle death
         this.handleDeath();
-
         Debug.Log("DIE MTFK DIEEE!!");
-        
         StartCoroutine(Respawn());
     }
 
@@ -85,7 +86,7 @@ public class FlyController : MonoBehaviour
             GameObject explosion = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
             foreach(ObstacleController o in below)
             {
-                o.destroy();
+                o.Destroy();
             }
         }
     }
@@ -99,13 +100,21 @@ public class FlyController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         ObstacleController o = other.GetComponentInParent <ObstacleController>();
-        if (o) below.Add(o);
+        if (!o) return;
+        below.Add(o);
+        
+        Transform txt = o.transform.Find("txtDrag");
+        if (txt) txt.gameObject.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
         ObstacleController o = other.GetComponent<ObstacleController>();
+        if (!o) return;
+        below.Remove(o);
+
         if (dragged && o.gameObject == dragged.gameObject) Drop();
-        if (o) below.Remove(o);
+        Transform txt = o.transform.Find("txtDrag");
+        if (txt) txt.gameObject.SetActive(false);
     }
 }

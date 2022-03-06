@@ -27,8 +27,8 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        this.triggerCollider = transform.gameObject.GetComponentInChildren<CapsuleCollider>();
-        this.triggerCollider.radius = viewDistance;
+        triggerCollider = transform.gameObject.GetComponentInChildren<CapsuleCollider>();
+        triggerCollider.radius = viewDistance;
         mesh = new Mesh();
     }
 
@@ -37,18 +37,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         mesh = transform.GetChild(0).GetComponentInChildren<MeshFilter>().mesh = mesh;
-
-        if (this.enablePov)
-        {
-            this.drawPov();
-        }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (enablePov) drawPov();
     }
 
     private void FixedUpdate()
@@ -100,16 +89,10 @@ public class EnemyController : MonoBehaviour
         //moving = false;
     }
 
-    public Vector3 getPov()
-    {
-        return transform.rotation.eulerAngles;
-
-    }
+    public Vector3 getPov() => transform.rotation.eulerAngles;
 
     void drawPov()
     {
-        
-
         Vector3 vzero = Vector3.zero;
 
         int rayCount = 10;

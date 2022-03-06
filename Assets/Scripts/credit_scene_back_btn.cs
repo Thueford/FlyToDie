@@ -7,21 +7,8 @@ using UnityEngine.UI;
 
 public class credit_scene_back_btn : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void credits_btn_pressed()
     {
         SceneManager.LoadScene("MainMenu");
-
     }
 }

@@ -34,23 +34,14 @@ public class ObstacleController : MonoBehaviour
         foreach (GameObject g in gameObjects)
             if (g != null) g.SetActive(false);
 
-        this.renderer = gameObject.GetComponent<Renderer>();
-        if (this.hidden) this.Hide();
+        renderer = gameObject.GetComponent<Renderer>();
+        if (hidden) Hide();
 
-        if (this.destroyable)
-            activeObject = destroyableObject;
-        else
-        { 
-            activeObject = notDestroyableObject;
+        if (destroyable) activeObject = destroyableObject;
+        else if (destroyed) activeObject = destroyedObject;
+        else activeObject = notDestroyableObject;
 
-            if (destroyed)
-            {
-                activeObject = destroyedObject;
-            }
-        }
-
-
-        if (activeObject != null) activeObject.SetActive(true);
+        if (activeObject) activeObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -63,9 +54,7 @@ public class ObstacleController : MonoBehaviour
     {
         //handle movement
         if (enableCheckpoints)
-        {
             moveToNextCheckpoint();
-        }
     }
 
     void moveToNextCheckpoint()
@@ -85,42 +74,26 @@ public class ObstacleController : MonoBehaviour
     void moveTo(Vector3 pos, float speed)
     {
         Vector3 delta = transform.position - pos;
-
         transform.position -= delta.normalized * speed * Time.fixedDeltaTime;
     }
 
-    void Hide()
-    {
-        renderer.enabled = false;
-    }
+    void Hide() => renderer.enabled = false;
+    void Show() => renderer.enabled = true;
 
-    void Show()
-    {
-        renderer.enabled = true;
-    }
+    bool isDraggable() => moveable && pushable && !hidden;
 
-    // if you can drag the object
-    bool is_dragable()
+    public void Destroy()
     {
-        return moveable && pushable && !hidden;
-    }
+        if (!destroyable) return;
 
-    public void destroy()
-    {
-        if (this.destroyable)
+        if (destroyableObject != null)
         {
-            if (destroyableObject != null)
-            {
-
-                this.activeObject.SetActive(false);
-                this.activeObject = destroyedObject;
-                if (this.activeObject) this.activeObject.SetActive(true);
-
-            } else
-            {
-                Debug.LogError("Forgot to add a destroyed object to this");
-            }
-            transform.FindChild("ColliderContainer").gameObject.SetActive(false);
+            activeObject.SetActive(false);
+            activeObject = destroyedObject;
+            if (activeObject) activeObject.SetActive(true);
         }
+        else
+            Debug.LogError("Forgot to add a destroyed object to this");
+        transform.Find("ColliderContainer").gameObject.SetActive(false);
     }
 }
