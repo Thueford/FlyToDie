@@ -17,7 +17,7 @@ public class Explosion : MonoBehaviour
 
     // destroyed by ParticleSystem
     // void StopExplosion() { Destroy(gameObject); }
-    void StopCollision() { sc.enabled = false; }
+    void StopCollision() => sc.enabled = false;
 
 
     public void SetProperties(string owner, float radius, float damage, float velScale = 3)

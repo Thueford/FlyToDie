@@ -6,6 +6,10 @@ TagManager:
   tags:
   - BigBadBird
   - PlayerBullet
+  - Obstacle
+  - KillLevel
+  - ColliderContainer
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -15,9 +19,9 @@ TagManager:
   - UI
   - Player
   - Wall
-  - Enemie
-  - 
-  - 
+  - Enemy
+  - Effect
+  - PlayerDetector
   - 
   - 
   - 

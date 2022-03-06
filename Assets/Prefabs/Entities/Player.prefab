@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3635649560846220051}
   - component: {fileID: 8173833990966481230}
   - component: {fileID: 8763395455542908436}
+  - component: {fileID: 2867652746226860278}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -121,6 +122,21 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2867652746226860278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635649560846220044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f204907f7c402f45bff197f233c04b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  DeadPrefab: {fileID: 2941462236079272147, guid: f1b3ce5063c095f49bde40a07188564d, type: 3}
+  respawnPos: {x: 0, y: 0, z: 0}
 --- !u!65 &3734350865655241673
 BoxCollider:
   m_ObjectHideFlags: 0

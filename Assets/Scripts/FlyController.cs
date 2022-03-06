@@ -18,12 +18,11 @@ public class FlyController : MonoBehaviour
     public FlyType flyType = FlyType.DEFAULT;
 
     public Dictionary<FlyType, int>FlyCounter;
-    
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
         FlyCounter = new Dictionary<FlyType, int>();
     }
 
@@ -36,19 +35,21 @@ public class FlyController : MonoBehaviour
             else
                 Drop();
         }
-        if (KeyHandler.ReadKillInput())
-            Die();
     }
 
 
-    private void Drag(ObstacleController o)
+    public void Drag(ObstacleController o)
     {
+        if (!o) return;
         dragged = o.GetComponent<Rigidbody>();
+        dragged.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         dragged.drag = 0;
     }
-    private void Drop()
+    public void Drop()
     {
-        if (dragged) dragged.drag = 10;
+        if (!dragged) return;
+        dragged.drag = 10;
+        dragged.constraints = RigidbodyConstraints.FreezeAll;
         dragged = null;
     }
 
@@ -56,9 +57,7 @@ public class FlyController : MonoBehaviour
     {
         //handle death
         this.handleDeath();
-
         Debug.Log("DIE MTFK DIEEE!!");
-        
         StartCoroutine(Respawn());
     }
 
@@ -69,12 +68,12 @@ public class FlyController : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        transform.position = GameController.self.curLvl.startPos;
+        transform.position = GameController.self.curLvl.startPosFly;
         transform.GetChild(0).gameObject.SetActive(true);
         KeyHandler.enableMovement = true;
     }
 
-    private void handleDeath()
+    public void handleDeath()
     {
         Drop();
         if (this.flyType == FlyType.DEFAULT)
@@ -85,6 +84,10 @@ public class FlyController : MonoBehaviour
         } else if (this.flyType == FlyType.EXPLOSION)
         {
             GameObject explosion = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
+            foreach(ObstacleController o in below)
+            {
+                o.Destroy();
+            }
         }
     }
 
@@ -96,14 +99,22 @@ public class FlyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ObstacleController o = other.GetComponent<ObstacleController>();
-        if (o) below.Add(o);
+        ObstacleController o = other.GetComponentInParent <ObstacleController>();
+        if (!o) return;
+        below.Add(o);
+        
+        Transform txt = o.transform.Find("txtDrag");
+        if (txt) txt.gameObject.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
         ObstacleController o = other.GetComponent<ObstacleController>();
+        if (!o) return;
+        below.Remove(o);
+
         if (dragged && o.gameObject == dragged.gameObject) Drop();
-        if (o) below.Remove(o);
+        Transform txt = o.transform.Find("txtDrag");
+        if (txt) txt.gameObject.SetActive(false);
     }
 }

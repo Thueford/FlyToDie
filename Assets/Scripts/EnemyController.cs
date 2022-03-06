@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     public CapsuleCollider triggerCollider;
     private bool targetFound = false;
 
-    private Collider playerCollider;
+    private KillController targetPlayer;
     private bool moving = false;
     private Vector3 playerPos;
     public float moveMult = 20f;
@@ -27,8 +27,8 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        this.triggerCollider = transform.gameObject.GetComponentInChildren<CapsuleCollider>();
-        this.triggerCollider.radius = viewDistance;
+        triggerCollider = transform.gameObject.GetComponentInChildren<CapsuleCollider>();
+        triggerCollider.radius = viewDistance;
         mesh = new Mesh();
     }
 
@@ -37,18 +37,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         mesh = transform.GetChild(0).GetComponentInChildren<MeshFilter>().mesh = mesh;
-
-        if (this.enablePov)
-        {
-            this.drawPov();
-        }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (enablePov) drawPov();
     }
 
     private void FixedUpdate()
@@ -58,7 +47,7 @@ public class EnemyController : MonoBehaviour
 
         if (moving)
         {
-            playerPos = playerCollider.transform.position;
+            playerPos = targetPlayer.transform.position;
             dplayerPos = transform.position - playerPos;
 
 
@@ -81,8 +70,7 @@ public class EnemyController : MonoBehaviour
             {
                 moving = false;
                 targetFound = false;
-                playerCollider.gameObject.GetComponent<FlyController>().Die(); //.GetPlayer(PlayerType.FLY).die
-
+                if (targetPlayer) targetPlayer.Die();
             }
         }
     }
@@ -90,8 +78,9 @@ public class EnemyController : MonoBehaviour
     private void OnTriggerEnter(Collider player)
     {
         Debug.Log(player.name);
-        playerCollider = player;
-        moving = true;
+        Debug.Log(player);
+        targetPlayer = player.gameObject.GetComponent<KillController>();
+        moving = !!targetPlayer;
     }
 
     private void OnTriggerExit(Collider other)
@@ -100,16 +89,10 @@ public class EnemyController : MonoBehaviour
         //moving = false;
     }
 
-    public Vector3 getPov()
-    {
-        return transform.rotation.eulerAngles;
-
-    }
+    public Vector3 getPov() => transform.rotation.eulerAngles;
 
     void drawPov()
     {
-        
-
         Vector3 vzero = Vector3.zero;
 
         int rayCount = 10;

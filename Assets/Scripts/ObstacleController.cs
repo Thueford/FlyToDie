@@ -11,88 +11,89 @@ public class ObstacleController : MonoBehaviour
     public bool hidden = false;
 
     public float speed = 1.0f;
+    public bool destroyed = false;
 
-    // route where to go 
+    public GameObject notDestroyableObject;
+    public GameObject destroyableObject;
+    public GameObject destroyedObject;
+
+
+    private GameObject[] gameObjects;
+    private GameObject activeObject;
+
+    // route where to go
     public List<Vector3> checkpoints = new List<Vector3>();
     private int checkpointCounter = 0;
 
     private Renderer renderer;
-    
 
     private void Awake()
     {
-        this.renderer = gameObject.GetComponent<Renderer>();
-        if (this.hidden) {
-            this.Hide();
-        }
-    }
+        //if (!notDestroyableObject) notDestroyableObject = gameObject.GetComponent<Sp>
+        gameObjects = new GameObject[3] { notDestroyableObject, destroyableObject, destroyedObject};
+        foreach (GameObject g in gameObjects)
+            if (g != null) g.SetActive(false);
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        renderer = gameObject.GetComponent<Renderer>();
+        if (hidden) Hide();
+
+        if (destroyable) activeObject = destroyableObject;
+        else if (destroyed) activeObject = destroyedObject;
+        else activeObject = notDestroyableObject;
+
+        if (activeObject) activeObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.GetComponent<BoxCollider>().isTrigger)
-        {
-            Debug.Log("Trigger");
-        }
+
     }
 
     private void FixedUpdate()
     {
         //handle movement
-        if (this.enableCheckpoints)
-        {
-            this.moveToNextCheckpoint();
-        }
+        if (enableCheckpoints)
+            moveToNextCheckpoint();
     }
 
     void moveToNextCheckpoint()
     {
-        if (this.checkpoints.Count > this.checkpointCounter )
+        if (checkpoints.Count > checkpointCounter )
         {
-            if (Vector3.Distance(transform.position, this.checkpoints[this.checkpointCounter]) <= Time.fixedDeltaTime * speed)
+            if (Vector3.Distance(transform.position, checkpoints[checkpointCounter]) <= Time.fixedDeltaTime * speed)
             {
-                if (this.checkpointCounter + 1 >= this.checkpoints.Count)
-                {
-                    this.checkpointCounter = 0;
-                } else
-                {
-                    this.checkpointCounter++;
-                }
+                if (checkpointCounter + 1 >= checkpoints.Count)
+                    checkpointCounter = 0;
+                else checkpointCounter++;
             }
-            this.moveTo(this.checkpoints[this.checkpointCounter], this.speed);
+            moveTo(checkpoints[checkpointCounter], speed);
         }
     }
 
     void moveTo(Vector3 pos, float speed)
     {
         Vector3 delta = transform.position - pos;
-
         transform.position -= delta.normalized * speed * Time.fixedDeltaTime;
     }
 
-    void Hide()
-    {
-        this.renderer.enabled = false;
-    }
+    void Hide() => renderer.enabled = false;
+    void Show() => renderer.enabled = true;
 
-    void Show()
-    {
-        this.renderer.enabled = true;
-    }
+    bool isDraggable() => moveable && pushable && !hidden;
 
-    // if you can drag the object
-    bool is_dragable()
+    public void Destroy()
     {
-        if (this.moveable && this.pushable && !this.hidden)
+        if (!destroyable) return;
+
+        if (destroyableObject != null)
         {
-            return true;
+            activeObject.SetActive(false);
+            activeObject = destroyedObject;
+            if (activeObject) activeObject.SetActive(true);
         }
-        return false;
+        else
+            Debug.LogError("Forgot to add a destroyed object to this");
+        transform.Find("ColliderContainer").gameObject.SetActive(false);
     }
 }
