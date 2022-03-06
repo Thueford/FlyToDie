@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     public float pov_width = 20f;
     public float viewDistance = 20f;
     public bool enablePov = true;
+    public bool eating = false;
 
     [HideInInspector] public Rigidbody rb;
     private const int angleSpeed = 130;
@@ -36,7 +37,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mesh = transform.GetChild(0).GetComponentInChildren<MeshFilter>().mesh = mesh;
+        mesh = transform.Find("Pov").GetComponentInChildren<MeshFilter>().mesh = mesh;
         if (enablePov) drawPov();
     }
 
@@ -66,13 +67,22 @@ public class EnemyController : MonoBehaviour
                 else transform.forward = moveForce;
             }
 
-            if (angl < 0.5)
+            if (angl < 2 && !eating)
             {
-                moving = false;
-                targetFound = false;
-                if (targetPlayer) targetPlayer.Die();
+                eating = true;
+                Transform toung = transform.Find("zungeCont");
+                toung.GetComponent<Animator>().Play("ExtendToung");
+                StartCoroutine(KillPlayer());
             }
         }
+    }
+
+    IEnumerator KillPlayer()
+    {
+        yield return new WaitForSeconds(0.17f);
+        if (targetPlayer) targetPlayer.Die();
+        moving = false;
+        targetFound = false;
     }
 
     private void OnTriggerEnter(Collider player)
@@ -84,6 +94,7 @@ public class EnemyController : MonoBehaviour
         {
             targetPlayer = obj;
             moving = true;
+            eating = false;
         }
     }
 
