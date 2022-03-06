@@ -41,7 +41,7 @@ public class FlyController : MonoBehaviour
     public void Drag(ObstacleController o)
     {
         if (!o) return;
-        dragged = o.GetComponent<Rigidbody>();
+        dragged = o.GetComponentInChildren<Rigidbody>();
         dragged.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         dragged.drag = 0;
     }
@@ -89,7 +89,9 @@ public class FlyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (dragged) dragged.velocity = rb.velocity;
+        // if (dragged) dragged.velocity = rb.velocity;
+        // Debug.Log(dragged);
+        if (dragged) dragged.position += rb.velocity * Time.fixedDeltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
