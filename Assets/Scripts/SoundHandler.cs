@@ -61,10 +61,10 @@ public class SoundHandler : MonoBehaviour
 
     public static void SetVolume(float volMusic, float volEffects)
     {
-        self.MusicSource.volume = volMusic;
+        /*self.MusicSource.volume = volMusic;
         self.EffectSource.volume = volEffects;
         self.MenuSource.volume = volEffects;
-        self.WalkSource.volume = volEffects;
+        self.WalkSource.volume = volEffects;*/
     }
 
     public static void PlayClip(string s) => PlayClip(clips[s]);
