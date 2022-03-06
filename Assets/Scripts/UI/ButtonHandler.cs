@@ -37,6 +37,11 @@ public class ButtonHandler : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void test()
+    {
+        Debug.Log("Test");
+    }
+
     public void quit()
     {
         Debug.Log("Quit");
