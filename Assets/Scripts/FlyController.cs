@@ -83,6 +83,7 @@ public class FlyController : MonoBehaviour
         Drop();
         if (flyType == FlyType.EXPLOSION)
         {
+            SoundHandler.PlayClip("explosion");
             GameObject explosion = Instantiate(ExplosionPrefab, transform.position, transform.rotation);
             foreach(ObstacleController o in below) o.Destroy();
             return false;

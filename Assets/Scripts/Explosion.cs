@@ -12,7 +12,6 @@ public class Explosion : MonoBehaviour
     void Start()
     {
         Invoke("StopCollision", lifespan);
-        SoundHandler.PlayClip("explosion");
     }
 
     // destroyed by ParticleSystem
