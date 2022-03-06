@@ -21,11 +21,7 @@ public class GameController : MonoBehaviour
 
     private void Awake() => self = this;
 
-    private void Start()
-    {
-        SetPlayerType(PlayerType.FLY);
-        IconController.toggleFlag = true;
-    }
+    private void Start() => SetPlayerType(PlayerType.FLY);
 
     void Update()
     {
@@ -62,18 +58,17 @@ public class GameController : MonoBehaviour
         {
             SoundHandler.PlayClip("changeToMade");
             SetPlayerType(PlayerType.MAGGOT);
-            icon.toggleIconSelect();
         }
         else
         {
             SoundHandler.PlayClip("changeToFly");
             SetPlayerType(PlayerType.FLY);
-            icon.toggleIconSelect();
         }
     }
 
     public void SetPlayerType(PlayerType type)
     {
+        icon.SetIcon(type == PlayerType.FLY);
         playerType = type;
         PlayerMovement cur = players[(int)type];
 
