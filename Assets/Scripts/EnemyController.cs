@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     public CapsuleCollider triggerCollider;
     private bool targetFound = false;
 
-    private Collider playerCollider;
+    private KillController targetPlayer;
     private bool moving = false;
     private Vector3 playerPos;
     public float moveMult = 20f;
@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
 
         if (moving)
         {
-            playerPos = playerCollider.transform.position;
+            playerPos = targetPlayer.transform.position;
             dplayerPos = transform.position - playerPos;
 
 
@@ -70,8 +70,7 @@ public class EnemyController : MonoBehaviour
             {
                 moving = false;
                 targetFound = false;
-                 if (playerCollider != null) playerCollider.gameObject.GetComponent<KillController>().Die();
-
+                if (targetPlayer) targetPlayer.Die();
             }
         }
     }
@@ -79,8 +78,9 @@ public class EnemyController : MonoBehaviour
     private void OnTriggerEnter(Collider player)
     {
         Debug.Log(player.name);
-        playerCollider = player;
-        moving = true;
+        Debug.Log(player);
+        targetPlayer = player.gameObject.GetComponent<KillController>();
+        moving = !!targetPlayer;
     }
 
     private void OnTriggerExit(Collider other)
