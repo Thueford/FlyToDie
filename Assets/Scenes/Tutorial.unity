@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43975604, g: 0.48818052, b: 0.5683988, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140046, g: 0.50089234, b: 0.572317, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -885,8 +885,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4627357079583173987, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
       propertyPath: m_text
-      value: The fly can do suicide attacks (press <K>). When you play a explosion
-        fly you can burst some objects.
+      value: The fly can do suicide attacks (<K>). When you play an explosion fly
+        you can destroy some objects.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
@@ -1875,7 +1875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4627357079583173987, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
       propertyPath: m_text
-      value: When playing the fly you can play press <E> to drag some objects
+      value: When playing the fly you can press <E> to drag some objects.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
@@ -3145,8 +3145,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4627357079583173987, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
       propertyPath: m_text
-      value: To avoid the bird killing you try stay out of the shadow. The bird cant
-        see you while hiding under the gras. (The fly cant hide))
+      value: Avoid the bird by staying out of the shadow. You can hide under the
+        gras. (The fly cant hide)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
