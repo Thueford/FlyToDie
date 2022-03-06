@@ -236,6 +236,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2129834379487119604}
     m_Modifications:
+    - target: {fileID: 2618093060099129538, guid: ad72ff4664f519b4897ee7f31a89307e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2618093060099129541, guid: ad72ff4664f519b4897ee7f31a89307e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -245,8 +249,24 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2618093060099129541, guid: ad72ff4664f519b4897ee7f31a89307e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9622502
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618093060099129541, guid: ad72ff4664f519b4897ee7f31a89307e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.25783423
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618093060099129541, guid: ad72ff4664f519b4897ee7f31a89307e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.084186025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618093060099129541, guid: ad72ff4664f519b4897ee7f31a89307e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.02255758
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618093060099129541, guid: ad72ff4664f519b4897ee7f31a89307e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 110
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2618093060099129541, guid: ad72ff4664f519b4897ee7f31a89307e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -381,6 +401,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2129834379487119604}
     m_Modifications:
+    - target: {fileID: 2160217305266970071, guid: 7ce1f75360151444bafc7954ff9e7a8d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2350285534514250373, guid: 7ce1f75360151444bafc7954ff9e7a8d, type: 3}
       propertyPath: m_TagString
       value: NormalCounter
@@ -455,7 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8409614313705524045, guid: 7ce1f75360151444bafc7954ff9e7a8d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ce1f75360151444bafc7954ff9e7a8d, type: 3}

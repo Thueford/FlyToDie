@@ -44,12 +44,6 @@ public class ObstacleController : MonoBehaviour
         if (activeObject) activeObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         //handle movement
