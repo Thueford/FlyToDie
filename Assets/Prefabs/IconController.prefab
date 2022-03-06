@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6263000931836078092
+--- !u!1 &3979990168285082790
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6263000931836078095}
-  - component: {fileID: 6263000931836078094}
+  - component: {fileID: 7552852845298043879}
+  - component: {fileID: 938121486323793223}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: IconController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6263000931836078095
+--- !u!4 &7552852845298043879
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6263000931836078092}
+  m_GameObject: {fileID: 3979990168285082790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -38.500023, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6263000931836078094
+--- !u!114 &938121486323793223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6263000931836078092}
+  m_GameObject: {fileID: 3979990168285082790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3db55af1d76b5848891f21b39ee218c, type: 3}
+  m_Script: {fileID: 11500000, guid: df32721761072ae4ab42db112a76a90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerType: 0
-  flyType: 0
-  players: []
-  curLvl: {fileID: 0}
-  icon: {fileID: 938121486323793223, guid: 8c3a7bd9adee5be45a024bca89feb4fd, type: 3}
+  flyIce: {fileID: 2562528334920991227, guid: f3c05d74ddcba244d8278e2e78bfe932, type: 3}
+  flyBomb: {fileID: 1867739983660874942, guid: 1fa2d4e203ff22b40aac3ffd99a98b07, type: 3}
+  flyNormal: {fileID: 6678882117552521533, guid: 8d74c1de7753c694fabab8822087f306, type: 3}
+  fly: {fileID: 3171710884273176396, guid: 871d17494d8af05409bd21381b4e70d9, type: 3}
+  maggot: {fileID: 8636021376667676276, guid: 6c861900bc3c9b3438296dfd33eb6c04, type: 3}
