@@ -443,7 +443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8120629895691433413, guid: 7ce1f75360151444bafc7954ff9e7a8d, type: 3}
       propertyPath: orthographic size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8120629895691433415, guid: 7ce1f75360151444bafc7954ff9e7a8d, type: 3}
       propertyPath: m_Name
