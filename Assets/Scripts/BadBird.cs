@@ -22,6 +22,11 @@ public class BadBird : MonoBehaviour
         birdie = GetComponent<SpriteRenderer>();
     }
 
+    private void Start()
+    {
+        if (checkpoints.Count > 0) transform.forward = checkpoints[checkpointCounter] - transform.position;
+    }
+
     private void FixedUpdate()
     {
         moveToNextCheckpoint();
@@ -57,7 +62,6 @@ public class BadBird : MonoBehaviour
                 {
                     dcheckpoint = checkpoints[0] - checkpoints[checkpointCounter];
                     checkpointCounter = 0;
-                    
                 }
                 else
                 {
@@ -65,11 +69,8 @@ public class BadBird : MonoBehaviour
                     dcheckpoint = checkpoints[checkpointCounter - 1] - checkpoints[checkpointCounter];
                 }
 
-                float ang = Vector3.Angle(transform.forward, new Vector3(dcheckpoint.x, 0,dcheckpoint.z).normalized);
-                //Debug.Log(transform.forward);
-                //Debug.Log(dcheckpoint.normalized);
-                //Debug.Log(ang);
-                transform.eulerAngles = new Vector3(0, ang + transform.eulerAngles.y, 0);
+                Vector3 fwd = checkpoints[checkpointCounter] - transform.position;
+                transform.forward = fwd;
             }
             moveTo(checkpoints[checkpointCounter], speed);
         }
@@ -84,7 +85,7 @@ public class BadBird : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        PlayerMovement pm = other.GetComponent<PlayerMovement>();
+        PlayerMovement pm = other.GetComponentInParent<PlayerMovement>();
         if (pm && other.CompareTag("Player") && pm.visible)
         {
             Debug.Log("Birdie sees you");
