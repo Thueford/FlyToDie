@@ -8,13 +8,14 @@ public class BadBird : MonoBehaviour
     private int checkpointCounter = 0;
 
     public float speed = 1.0f;
-    
 
+    [ReadOnly]
     public bool sees_you = false;
+    public int time_to_kill = 2;
 
     private SpriteRenderer birdie;
 
-    public GameObject schnabelPrefab;
+    //public GameObject schnabelPrefab;
 
     private void Awake()
     {
@@ -89,18 +90,20 @@ public class BadBird : MonoBehaviour
         {
             Debug.Log("Birdie sees you");
             sees_you = true;
-            StartCoroutine(kill());
+            StartCoroutine(kill(other.GetComponent<PlayerMovement>().type));
 
         }
     }
-    IEnumerator kill()
+    IEnumerator kill(PlayerType pt)
     {
-        yield return new WaitForSeconds(5);// Wait a bit
+        yield return new WaitForSeconds(time_to_kill);// Wait a bit
         if (sees_you)
         {
             Debug.Log("You die now");
-            schnabelPrefab.GetComponent<Schnabel>().kill = true;
-            GameController.self.GetPlayer(GameController.self.playerType).GetComponent<KillController>().Die();
+            if (pt == GameController.self.playerType) { 
+                Camera.main.GetComponentInChildren<Schnabel>().kill = true; 
+            }
+            GameController.self.GetPlayer(pt).GetComponent<KillController>().Die();
         }
     }
 

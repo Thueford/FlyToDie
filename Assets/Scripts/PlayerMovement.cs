@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     public bool visible = true;
     public bool birdie_sees_you = false;
     private Camera cam;
+    [ReadOnly]
+    public PlayerType type;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
