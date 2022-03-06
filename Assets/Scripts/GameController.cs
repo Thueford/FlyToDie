@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public FlyType flyType = FlyType.DEFAULT;
 
     public PlayerMovement[] players;
+    public FlyController flyController;
 
     public static GameController self;
     public LevelController curLvl;
@@ -93,7 +94,7 @@ public class GameController : MonoBehaviour
             case FlyType.DEFAULT:
                 if(icon.setIconColor(FlyType.DEFAULT))
                 {
-
+                    
                 }
                 break;
             case FlyType.BOMB:
