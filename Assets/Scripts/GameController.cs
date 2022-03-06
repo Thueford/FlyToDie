@@ -56,11 +56,13 @@ public class GameController : MonoBehaviour
     {
         if (playerType == PlayerType.FLY)
         {
+            SoundHandler.PlayClip("changeToMade");
             SetPlayerType(PlayerType.MAGGOT);
             icon.toggleIconSelect();
         }
         else
         {
+            SoundHandler.PlayClip("changeToFly");
             SetPlayerType(PlayerType.FLY);
             icon.toggleIconSelect();
         }

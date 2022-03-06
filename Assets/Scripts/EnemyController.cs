@@ -79,6 +79,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator KillPlayer()
     {
+        SoundHandler.PlayClip("frog");
         yield return new WaitForSeconds(0.17f);
         if (targetPlayer) targetPlayer.Die(false);
         moving = false;
