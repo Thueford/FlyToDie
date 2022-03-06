@@ -24,19 +24,19 @@ public class KillController : MonoBehaviour
 
     public void SetRespawnPos() => respawnPos = transform.position;
 
-    public void Die()
+    public void Die(bool corpse = true)
     {
         // if fly
         FlyController fly = gameObject.GetComponent<FlyController>();
-        if (fly != null)
-        {
-            fly.handleDeath();
-        }
+        if (fly) corpse = corpse && fly.handleDeath();
 
         Debug.Log("DIE MTFK DIEEE!!");
-        GameObject dead = Instantiate(DeadPrefab, transform.position, transform.rotation);
-        dead.GetComponent<Rigidbody>().AddForce(200 * Vector3.up);
-        dead.GetComponent<Rigidbody>().rotation = Random.rotation;
+        if (corpse)
+        {
+            GameObject dead = Instantiate(DeadPrefab, transform.position, transform.rotation);
+            dead.GetComponent<Rigidbody>().AddForce(200 * Vector3.up);
+            dead.GetComponent<Rigidbody>().rotation = Random.rotation;
+        }
         StartCoroutine(Respawn());
     }
 

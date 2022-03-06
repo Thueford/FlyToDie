@@ -80,7 +80,7 @@ public class EnemyController : MonoBehaviour
     IEnumerator KillPlayer()
     {
         yield return new WaitForSeconds(0.17f);
-        if (targetPlayer) targetPlayer.Die();
+        if (targetPlayer) targetPlayer.Die(false);
         moving = false;
         targetFound = false;
     }
