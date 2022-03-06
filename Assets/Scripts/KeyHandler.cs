@@ -42,5 +42,5 @@ public class KeyHandler : MonoBehaviour
 
     public static bool ReadTypeSelect1() => Input.GetKeyDown(KeyCode.Alpha1);
     public static bool ReadTypeSelect2() => Input.GetKeyDown(KeyCode.Alpha2);
-    public static bool ReadTypeSelect3() => Input.GetKeyDown(KeyCode.Alpha3);
+    // public static bool ReadTypeSelect3() => Input.GetKeyDown(KeyCode.Alpha3);
 }

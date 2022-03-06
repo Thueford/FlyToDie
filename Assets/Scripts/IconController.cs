@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class IconController : MonoBehaviour
 {
 
-    public GameObject flyIce;
+    // public GameObject flyIce;
     public GameObject flyBomb;
     public GameObject flyNormal;
 
@@ -65,9 +65,6 @@ public class IconController : MonoBehaviour
                 break;
             case FlyType.BOMB:
                 fly.GetComponent<Image>().color = getIconColor(flyBomb);
-                break;
-            case FlyType.ICE:
-                fly.GetComponent<Image>().color = getIconColor(flyIce);
                 break;
             default:
                 break;

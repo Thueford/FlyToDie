@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerType { FLY, MAGGOT }
-public enum FlyType { DEFAULT, FIRE, ICE, BOMB }
+public enum FlyType { DEFAULT, BOMB }
 
 public class GameController : MonoBehaviour
 {
@@ -29,14 +29,12 @@ public class GameController : MonoBehaviour
 
         if (KeyHandler.ReadTypeSelect1())
         {
+            Debug.Log("TOGGLE Default");
             ToggleFlyType(FlyType.DEFAULT);
         }
         else if (KeyHandler.ReadTypeSelect2())
         {
-            ToggleFlyType(FlyType.ICE);
-        }
-        else if (KeyHandler.ReadTypeSelect3())
-        {
+            Debug.Log("TOGGLE Bomb");
             ToggleFlyType(FlyType.BOMB);
         }
 
@@ -91,11 +89,7 @@ public class GameController : MonoBehaviour
         switch(type)
         {
             case FlyType.DEFAULT:
-                Debug.Log("Normal");
                 icon.setIconColor(FlyType.DEFAULT);
-                break;
-            case FlyType.ICE:
-                icon.setIconColor(FlyType.ICE);
                 break;
             case FlyType.BOMB:
                 icon.setIconColor(FlyType.BOMB);
