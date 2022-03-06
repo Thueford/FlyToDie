@@ -224,6 +224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fly
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ca98d5a21f595b2408270eaae37fb728, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2410448201129605536, guid: ca98d5a21f595b2408270eaae37fb728, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

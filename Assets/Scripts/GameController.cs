@@ -33,8 +33,12 @@ public class GameController : MonoBehaviour
     internal void SetLevel(LevelController level)
     {
         curLvl = level;
-        foreach (var p in players)
+        int i = 0;
+        foreach (PlayerMovement p in players)
+        {
             p.GetComponent<KillController>().SetRespawnPos();
+            p.type = (PlayerType)i++;
+        }
     }
 
     public void TogglePlayerType()
