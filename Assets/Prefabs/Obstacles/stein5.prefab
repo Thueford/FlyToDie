@@ -359,6 +359,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ColliderContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 1380058046914132442, guid: 22ed535f6fcbc574ca55c2be7f0384cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380058046914132442, guid: 22ed535f6fcbc574ca55c2be7f0384cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380058046914132442, guid: 22ed535f6fcbc574ca55c2be7f0384cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22ed535f6fcbc574ca55c2be7f0384cc, type: 3}
 --- !u!4 &4386464754069594298 stripped

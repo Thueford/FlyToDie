@@ -64,14 +64,24 @@ public class BadBird : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, this.checkpoints[this.checkpointCounter]) <= Time.fixedDeltaTime * speed)
             {
+                Vector3 dcheckpoint;
                 if (this.checkpointCounter + 1 >= this.checkpoints.Count)
                 {
+                    dcheckpoint = this.checkpoints[0] - this.checkpoints[checkpointCounter];
                     this.checkpointCounter = 0;
+                    
                 }
                 else
                 {
                     this.checkpointCounter++;
+                    dcheckpoint = this.checkpoints[checkpointCounter - 1] - this.checkpoints[checkpointCounter];
                 }
+
+                float ang = Vector3.Angle(transform.forward, new Vector3(dcheckpoint.x, 0,dcheckpoint.z).normalized);
+                Debug.Log(transform.forward);
+                Debug.Log(dcheckpoint.normalized);
+                Debug.Log(ang);
+                transform.eulerAngles = new Vector3(0, ang + transform.eulerAngles.y, 0);
             }
             this.moveTo(this.checkpoints[this.checkpointCounter], this.speed);
         }
