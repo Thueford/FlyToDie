@@ -804,6 +804,92 @@ Transform:
   m_Father: {fileID: 503593239}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &340092920
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3690016769984443113, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_Name
+      value: NPC (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.384
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.976
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909128, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909128, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.371
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_text
+      value: press <E>
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_margin.y
+      value: -0.95053804
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_margin.z
+      value: -0.941597
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966214385547241115, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627357079583173987, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_text
+      value: The fly can do suicide attacks (press <K>). When you play a explosion
+        fly you can burst some objects.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
 --- !u!1001 &383124439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1708,6 +1794,91 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f41d3cbf43855504bba679894cfeffa0, type: 3}
+--- !u!1001 &1013960234
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3690016769984443113, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_Name
+      value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.27220306
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.8915863
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909128, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909128, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.371
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_text
+      value: press <E>
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_margin.y
+      value: -0.95053804
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_margin.z
+      value: -0.941597
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966214385547241115, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627357079583173987, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_text
+      value: When playing the fly you can play press <E> to drag some objects
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
 --- !u!4 &1147823314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8896258120224512929, guid: 27e3f3214bd40f0429d93f8236294b7d, type: 3}
@@ -2893,6 +3064,92 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cabaa28df4b2bfe48a868512291920f1, type: 3}
+--- !u!1001 &1778458945
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3690016769984443113, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_Name
+      value: NPC (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909128, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909128, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.371
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_text
+      value: press <E>
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_margin.y
+      value: -0.95053804
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_margin.z
+      value: -0.941597
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966214385547241115, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627357079583173987, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_text
+      value: To avoid the bird killing you try stay out of the shadow. The bird cant
+        see you while hiding under the gras. (The fly cant hide))
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
 --- !u!1001 &1801405140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3141,6 +3398,92 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f41d3cbf43855504bba679894cfeffa0, type: 3}
+--- !u!1001 &1860802484
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3690016769984443113, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_Name
+      value: NPC (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 27.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016769984443127, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909128, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909128, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.371
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_text
+      value: press <E>
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_margin.y
+      value: -0.95053804
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690016770918909143, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_margin.z
+      value: -0.941597
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966214385547241115, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627357079583173987, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
+      propertyPath: m_text
+      value: Try to avoid the line of sight of the frogs. You can use the fly to
+        distract them.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a68e83cca9a24b942b82406d194585d2, type: 3}
 --- !u!1001 &1862552870
 PrefabInstance:
   m_ObjectHideFlags: 0
