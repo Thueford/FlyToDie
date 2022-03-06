@@ -72,5 +72,5 @@ public class GameController : MonoBehaviour
 
     public PlayerMovement GetPlayer(PlayerType type) => players[(int)type];
 
-    public void 
+     
 }
