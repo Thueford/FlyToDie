@@ -381,6 +381,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2129834379487119604}
     m_Modifications:
+    - target: {fileID: 2350285534514250373, guid: 7ce1f75360151444bafc7954ff9e7a8d, type: 3}
+      propertyPath: m_TagString
+      value: NormalCounter
+      objectReference: {fileID: 0}
     - target: {fileID: 5198864534046067197, guid: 7ce1f75360151444bafc7954ff9e7a8d, type: 3}
       propertyPath: MatBlur
       value: 

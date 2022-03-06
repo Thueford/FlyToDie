@@ -89,6 +89,7 @@ public class BadBird : MonoBehaviour
         if (pm && other.CompareTag("Player") && pm.visible)
         {
             Debug.Log("Birdie sees you");
+            SoundHandler.PlayClip("bird");
             sees_you = true;
             StartCoroutine(kill(pm.type));
         }
