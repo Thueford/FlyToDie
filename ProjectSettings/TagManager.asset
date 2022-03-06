@@ -10,6 +10,8 @@ TagManager:
   - KillLevel
   - ColliderContainer
   - Platform
+  - BombCounter
+  - NormalCounter
   layers:
   - Default
   - TransparentFX

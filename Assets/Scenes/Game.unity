@@ -689,6 +689,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2350285534514250373, guid: 7ce1f75360151444bafc7954ff9e7a8d, type: 3}
+      propertyPath: m_TagString
+      value: NormalCounter
+      objectReference: {fileID: 0}
     - target: {fileID: 3109793999868695504, guid: 7ce1f75360151444bafc7954ff9e7a8d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -967,6 +971,14 @@ PrefabInstance:
       propertyPath: flyNormal
       value: 
       objectReference: {fileID: 1580337832}
+    - target: {fileID: 938121486323793223, guid: 8c3a7bd9adee5be45a024bca89feb4fd, type: 3}
+      propertyPath: flyBombCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 938121486323793223, guid: 8c3a7bd9adee5be45a024bca89feb4fd, type: 3}
+      propertyPath: flyNormalCount
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3979990168285082790, guid: 8c3a7bd9adee5be45a024bca89feb4fd, type: 3}
       propertyPath: m_Name
       value: IconController

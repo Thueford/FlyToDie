@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class IconController : MonoBehaviour
 {
@@ -13,11 +14,20 @@ public class IconController : MonoBehaviour
     public GameObject fly;
     public GameObject maggot;
 
+    public string flyBombCount;
+    public string flyNormalCount;
+
     private static bool toggleFlag;
 
-    public IconController()
+    public void Awake()
     {
         toggleFlag = true;
+
+        GameObject normalCounter = GameObject.FindGameObjectWithTag("NormalCounter");
+        normalCounter.GetComponentInParent<TMP_Text>().text = flyNormalCount;
+
+        GameObject bombCounter = GameObject.FindGameObjectWithTag("BombCounter");
+        bombCounter.GetComponent<TMP_Text>().text = flyBombCount;
     }
 
     public void toggleIconSelect()
