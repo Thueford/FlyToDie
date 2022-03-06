@@ -110,10 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97ae4368b103f94c8fe6ad105952d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpoints:
-  - {x: 100, y: -10, z: 100}
+  checkpoints: []
   speed: 1
   sees_you: 0
+  schnabelPrefab: {fileID: 0}
 --- !u!65 &2929090827570322580
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567546126931473527}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 27.32967, y: 11.207217, z: 26.881897}
