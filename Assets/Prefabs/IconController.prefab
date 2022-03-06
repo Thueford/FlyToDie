@@ -43,8 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df32721761072ae4ab42db112a76a90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyIce: {fileID: 2562528334920991227, guid: f3c05d74ddcba244d8278e2e78bfe932, type: 3}
-  flyBomb: {fileID: 1867739983660874942, guid: 1fa2d4e203ff22b40aac3ffd99a98b07, type: 3}
-  flyNormal: {fileID: 6678882117552521533, guid: 8d74c1de7753c694fabab8822087f306, type: 3}
+  flyIce: {fileID: 5203521382012225842, guid: f3c05d74ddcba244d8278e2e78bfe932, type: 3}
+  flyBomb: {fileID: 1108488233333003254, guid: 1fa2d4e203ff22b40aac3ffd99a98b07, type: 3}
+  flyNormal: {fileID: 2044529941487313729, guid: 8d74c1de7753c694fabab8822087f306, type: 3}
   fly: {fileID: 3171710884273176396, guid: 871d17494d8af05409bd21381b4e70d9, type: 3}
   maggot: {fileID: 8636021376667676276, guid: 6c861900bc3c9b3438296dfd33eb6c04, type: 3}
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  iceColor: {r: 0, g: 0, b: 0, a: 0}
+  bombColor: {r: 0, g: 0, b: 0, a: 0}

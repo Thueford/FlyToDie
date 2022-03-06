@@ -45,7 +45,6 @@ public class GameController : MonoBehaviour
 
     public void TogglePlayerType()
     {
-        Debug.Log("TOGGLE");
         if (playerType == PlayerType.FLY)
         {
             SetPlayerType(PlayerType.MAGGOT);
@@ -76,4 +75,21 @@ public class GameController : MonoBehaviour
 
     public PlayerMovement GetPlayer(PlayerType type) => players[(int)type];
     public PlayerMovement GetPlayer() => GetPlayer(playerType);
+
+    public void ToggleFlyType()
+    {
+        if (KeyHandler.ReadTypeSelect1())
+        {
+            Debug.Log("Normal");
+            icon.setIconColor(FlyType.DEFAULT);
+        } 
+        else if (KeyHandler.ReadTypeSelect2())
+        {
+            icon.setIconColor(FlyType.ICE);
+        }
+        else if (KeyHandler.ReadTypeSelect3())
+        {
+            icon.setIconColor(FlyType.BOMB);
+        }
+    }
 }

@@ -15,9 +15,9 @@ public class IconController : MonoBehaviour
 
     private static bool toggleFlag;
 
-    public Color normalColor;
-    public Color iceColor;
-    public Color bombColor;
+    private static Color normalColor;
+    private static Color iceColor;
+    private static Color bombColor;
 
     public IconController()
     {
@@ -34,7 +34,7 @@ public class IconController : MonoBehaviour
         bombColor = new Color(
             flyBomb.GetComponent<Image>().color.r,
             flyBomb.GetComponent<Image>().color.g,
-            flyBomb.GetComponent<Image>().color.b);
+            flyBomb.GetComponent<Image>().color.b );
     }
 
     public void toggleIconSelect()
